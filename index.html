@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" title="default demosheet" media="screen" href="demo.css" type="text/css" />
+    <title>Image formats comparison</title>
+    <script async src="js/bpgdec-0.9.4.js"></script>
+    <script async src="js/pica.min.js"></script>
+    <script async src="js/splitimage2.js"></script>
+</head>
+
+<body style="max-width: 100%;">
+
+    <div class="demo" style="margin-left: auto; margin-right: auto; overflow:hidden;">
+        <table>
+            <tr>
+                <td class="title" colspan=3>
+                    <select id="fileSel" style="font-size: 1.1em; margin-bottom: 1em;" multiple="multiple">
+                        <option value="125-Que_bec-Pont_de_Que_bec_de_nuit-Septembre_2009" selected>Pont de Québec at Night</option>
+                        <option value="2011-03-05_03-13_Madeira_159_Funchal_Mercado_dos_Lavradores">Mercado dos Lavradores</option>
+                        <option value="205-Valle_e_de_Colca-Panorama-Juin_2010-5_de_6">Vallée de Colca</option>
+                        <option value="77_Bombay_Street_Photo_by_Sven_Fischer" selected>77 Bombay Street</option>
+                        <option value="80-Machu_Picchu-Juin_2009-edit.2">Machu Picchu</option>
+                        <option value="Abandoned_Packard_Automobile_Factory_Detroit_200">Abandoned Factory</option>
+                        <option value="Adventure_with_the_Windmills">Adventure with the Windmills</option>
+                        <option value="Air_Force_Academy_Chapel_Colorado_Springs_CO_04090u_original">Air Force Academy Chapel</option>
+                        <option value="Bas_Relief_Cuverville03_hq">Bas-relief</option>
+                        <option value="Bodhi_Baum_Sri_Lanka">Bodhi Baum</option>
+                        <option value="Buenos_Aires_Cityline_at_Night_-_Irargerich" selected>Buenos Aires</option>
+                        <option value="Camelo-Timanfaya-Lanzarote-Illas_Canarias-Spain-T32">Camel</option>
+                        <option value="Catedral_de_Toledo.Altar_Mayor_(huge)">Catedral de Toledo</option>
+                        <option value="Citroen_C4F">Citroen</option>
+                        <option value="Claudette_14_july_2003_1920Z">Claudette</option>
+                        <option value="Clovisfest">Clovisfest</option>
+                        <option value="Eaglefairy_hst_big">Eaglefairy</option>
+                        <option value="Endeavour_with_Columbia_Ferry_Flyby_-_GPN-2000-001996">Endeavor and Columbia</option>
+                        <option value="Erfurt_Dom_Domtreppe_Severikirche_at_night">Erfurt Cathedral</option>
+                        <option value="Euphagus_cyanocephalus-Oakland_California_USA-adult_male_with_chick-8c">Brewer's Blackbird</option>
+                        <option value="Exercises_at_the_barre_Prix_de_Lausanne_2010-2">Ballet Exercise</option>
+                        <option value="Florac-Le_Vibron-Source_du_Pe_cher">Le Vibron</option>
+                        <option value="Fruits_oranges_jardin_japonais_2" selected>Fruits</option>
+                        <option value="IENA_-_Avenches_-_6">Avenches</option>
+                        <option value="IrishMannequinNOLAHighsmith">Irish Mannequin</option>
+                        <option value="Isle_Of_Skye_A863_The_Cuillins">Isle of Skye</option>
+                        <option value="Koln-Night-GavinCato" selected>Cologne Cathedral</option>
+                        <option value="Kroyer_PS">Krøyer</option>
+                        <option value="Michigan_Stadium_2011">Stadium</option>
+                        <option value="Moscow_July_2011-4a" selected>Moscow</option>
+                        <option value="Mrio_sdp1">Mrio</option>
+                        <option value="Nan_Lian_Garden_7645432">Nan Lian Garden</option>
+                        <option value="Nymphe_et_Amour_tenant_une_guirlande-Statues_du_Parterre_d_Eau-Cha_teau_de_Versailles">Nymph</option>
+                        <option value="Production_of_B-24_bombers_and_C-87_transports2">Production</option>
+                        <option value="Red_Bull_Jungfrau_Stafette_10th_stage-vintage_cars-2-" selected>Vintage Car</option>
+                        <option value="Ricardo_Quaresma-L-_Pablo_Zabaleta-R-Portugal_vs._Argentina_9th_February_2011">Soccer Players</option>
+                        <option value="Road_to_A_rstein_2010_September">Dirt Road</option>
+                        <option value="ST_vs_RCT_-_December_2011_-_077" selected>Mascot</option>
+                        <option value="Saint_Catherine-Caravaggio-1598-">Saint Catherine</option>
+                        <option value="Sking">Sking</option>
+                        <option value="Southern_pacific_1215">Southern Pacific</option>
+                        <option value="Steinway_Vienna_panoramic">Steinway</option>
+                        <option value="Swallowtail_05_06_07" selected>Swallowtail</option>
+                        <option value="Thomas_Bresson-Fort_de_Roppe-abri-caverne-">Fort de Roppe</option>
+                        <option value="US_Open_Tennis_2010_1st_Round_046">Tennis</option>
+                        <option value="Vid_Gajsek_-_Rojstnodnevna_referendumska_kavica">Kavica</option>
+                        <option value="Vocabulaire_de_l_acade_mie_1832_01">Old Book</option>
+                        <option value="Washington_Monument_Washington_D.C._04037u_original">Washington Monument</option>
+                        <option value="Wasserfassstelle_von_1898_im_Schanerloch">Waterfall</option>
+                        <option value="Zoo_de_la_Barben_20100605_048" selected>Zoo Bird Head</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="title" style="width:16em;padding-left:4em;text-align:right;">
+                    <select id="leftSel" style="font-size: 1.1em;">
+                        <option value="aom"  folder="AV1">AOM AV1</option>
+                        <option value="bpg"  folder="BPG-x265">BPG</option>
+                        <option value="ogv" folder="Daala">Daala</option>
+                        <option value="flif" folder="FLIF">FLIF</option>
+                        <option value="jpg"  folder="Mozjpeg" selected>JPEG</option>
+                        <option value="jp2"  folder="JP2K-Kakadu">JPEG 2000</option>
+                        <option value="jxr"  folder="JPEG XR">JPEG XR</option>
+                        <option value="vp10" folder="VP10">VP10</option>
+                        <option value="webp" folder="WebP">WebP</option>
+                        <option value="png"  folder="Original">Original</option>
+                    </select>
+                    <select id="leftQual" style="font-size: 1.1em;">
+                        <option value="ll">Lossless</option>
+                        <option value="l">Large</option>
+                        <option value="m">Medium</option>
+                        <option value="s" selected>Small</option>
+                        <option value="t">Tiny</option>
+                    </select>
+                </td>
+                <td class="center-head" id="center-head">
+                    --- vs ---
+                </td>
+                <td class="title" style="width:16em;padding-right:4em;text-align:left;">
+                    <select id="rightSel" style="font-size: 1.1em;">
+                        <option value="aom"  folder="AV1">AOM AV1</option>
+                        <option value="bpg"  folder="BPG-x265" selected>BPG</option>
+                        <option value="ogv" folder="Daala">Daala</option>
+                        <option value="flif" folder="FLIF">FLIF</option>
+                        <option value="jpg"  folder="Mozjpeg">JPEG</option>
+                        <option value="jp2"  folder="JP2K-Kakadu">JPEG 2000</option>
+                        <option value="jxr"  folder="JPEG XR">JPEG XR</option>
+                        <option value="vp10" folder="VP10">VP10</option>
+                        <option value="webp" folder="WebP">WebP</option>
+                        <option value="png"  folder="Original">Original</option>
+                    </select>
+                    <select id="rightQual" style="font-size: 1.1em;">
+                        <option value="ll">Lossless</option>
+                        <option value="l">Large</option>
+                        <option value="m">Medium</option>
+                        <option value="s" selected>Small</option>
+                        <option value="t">Tiny</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=3 style="padding-top: 1em; padding-bottom: 1em;">
+                    <div id="rightContainer" style="margin-left: auto; margin-right: auto; position: relative; width:800px; height:800px;">
+                        <div id="leftContainer" style="border-right: 1px dotted white; width:800px; height:800px;"></div>
+                        <div id="leftText" style="position: absolute; color: white; padding:.2em .5em .2em .5em;"></div>
+                        <div id="rightText" style="position: absolute; color: white; padding:.2em .5em .2em .5em;"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="title" colspan="3" style="width: 20%; text-align: center; padding-bottom: 1.25em;">
+                    <select id="scaleSel" style="width:5em ;font-size: 1em;text-align:center;">
+                        <option ratio="1:3" value="0.5773502692">1/3</option>
+                        <option ratio="1:2" value="0.7071067812">1/2</option>
+                        <option ratio="1:1" value="1" selected>---</option>
+                        <option ratio="2:1" value="1.414213562">2x</option>
+                        <option ratio="3:1" value="1.732050808">3x</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="caption" style="border-bottom: 1px solid;">
+        <p><strong><a href="lossless_stats.html" target="_blank">Lossless compression statistics</a></strong> — <strong><a href="lossy_stats.html" target="_blank">Lossy compression statistics</a></strong></p>
+    </div>
+    <div id="descCli" class="caption" style="border-bottom: 1px solid; font-family: 'Consolas', Courier, monospace;">
+        <p>aomenc-+d2bfbb6.exe --passes=2 --aq-mode=1 --end-usage=q --cq-level=$Q</p>
+        <p>bpgenc-0.9.6.exe -m 8 -f 420 -q $Q</p>
+        <p>encoder_example-+80d6a39.exe -v $Q</p>
+        <p>flif-+c5b6a1f -Q $Q</p>
+        <p>cjpeg-mozilla-3.1 -dc-scan-opt 2 -quality $Q</p>
+        <p>kdu_compress-7.8 -no_info -full -precise -slope $Q</p>
+        <p>jxrencapp-+e922fa50cdf9 -d 1 -q $Q</p>
+        <p>vpxenc-+d649065.exe --passes=2  --aq-mode=1 --end-usage=q --cq-level=$Q</p>
+        <p>cwebp-+9a950c5 -mt -m 6 -q $Q</p>
+    </div>
+    <div id="descEnc" class="caption">
+        <p>Large images were first encoded with bpgenc at q24 filesizes.
+            <br>Medium is 60% of Large. Small is 60% of Medium. Tiny is 60% of Small. Everything else was matched to +/- 5% filesize.</p>
+        <p>All images have been subsampled to full range YCbCr prior to compression. All lossy images are encoded with chroma subsampling 4:2:0, except FLIF which does not support subsampling, and JPEG2000.
+            <br>All lossless images are subsampled to YCbCr 4:4:4.</p>
+        <p>BPG, <a href="https://github.com/kripken/j2k.js">JPEG 2000</a>, <a href="https://github.com/saschanaz/jxrlib.js">JPEG XR</a>, and <a href="http://webpjs.appspot.com">WebP</a> decoded in javascript when needed. Rescaling is through Lanczos2.</p>
+        <p>This page is based on <a href="http://people.xiph.org/~xiphmont/demo/daala/update1-tool2b.shtml" target="_blank">Xiph.org's</a> Daala comparison page. A list of sources for the images can be found in <a href="cite_images.txt" target="_blank">this text file</a>.
+        </p>
+    </div>
+</body>
+
+</html>

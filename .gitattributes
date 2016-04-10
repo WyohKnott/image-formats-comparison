@@ -1,0 +1,10 @@
+*.aom -delta
+*.bpg -delta
+*.flif -delta
+*.jp2 -delta
+*.jpg -delta
+*.jxr -delta
+*.ogv -delta
+*.png -delta
+*.vp10 -delta
+*.webp -delta
