@@ -1,129 +1,383 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
-    <link rel="stylesheet" media="screen" href="table.css" type="text/css" />
-    <title>Image formats comparison - Lossless stats</title>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="results_lossless_fichiers/filelist.xml">
+<style id="results_lossless_6300_Styles">
+<!--table
+.xl156300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	
+	
+	white-space:nowrap;}
+.xl636300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:.5pt solid black;
+	border-left:none;
+	background:#DDEBF7;
+	
+	white-space:normal;}
+.xl646300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:.5pt solid black;
+	border-left:.5pt solid black;
+	background:#F8CBAD;
+	
+	white-space:normal;}
+.xl656300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:.5pt solid black;
+	border-left:.5pt solid black;
+	background:#F4B084;
+	
+	white-space:normal;}
+.xl666300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:.5pt solid black;
+	border-left:.5pt solid black;
+	background:#A9D08E;
+	
+	white-space:normal;}
+.xl676300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:.5pt solid black;
+	border-left:.5pt solid black;
+	background:#8EA9DB;
+	
+	white-space:normal;}
+.xl686300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:none;
+	border-left:none;
+	background:#DDEBF7;
+	
+	white-space:nowrap;}
+.xl696300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:none;
+	border-left:.5pt solid black;
+	background:#F8CBAD;
+	
+	white-space:nowrap;}
+.xl706300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:none;
+	border-left:.5pt solid black;
+	background:#F4B084;
+	
+	white-space:nowrap;}
+.xl716300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:none;
+	border-left:.5pt solid black;
+	background:#A9D08E;
+	
+	white-space:nowrap;}
+.xl726300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	background:#8EA9DB;
+	
+	white-space:nowrap;}
+.xl736300
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	
+	
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid black;
+	border-bottom:none;
+	border-left:.5pt solid black;
+	background:#8EA9DB;
+	
+	white-space:nowrap;}
+-->
+</style>
 </head>
 
 <body>
-    <h1>Average compression ratios and encoding/decoding time for lossless compression</h1>
-    <div id="results_lossless_10358" align=center>
-    <table border=0 cellpadding=0 cellspacing=0 width=728 style='border-collapse:
-     collapse;table-layout:fixed;width:547pt'>
-     <col width=123 style='width:92pt'>
-     <col width=105 span=5 style='width:79pt'>
-     <col width=80 style='width:60pt'>
-     <tr height=40 style='height:30.0pt'>
-      <td height=40 class=xl6310358 width=123 style='height:30.0pt;width:92pt'><a
-      name="RANGE!A1:G1">codec</a></td>
-      <td class=xl6410358 width=105 style='border-left:none;width:79pt'>compression
-      ratio</td>
-      <td class=xl6510358 width=105 style='border-left:none;width:79pt'>avg. enc.
-      time</td>
-      <td class=xl6610358 width=105 style='border-left:none;width:79pt'>avg. dec.
-      time</td>
-      <td class=xl6710358 width=105 style='border-left:none;width:79pt'>Reduction
-      gain from PNG</td>
-      <td class=xl6710358 width=105 style='border-left:none;width:79pt'>Weissman
-      score</td>
-      <td class=xl6710358 width=80 style='border-left:none;width:60pt'>Weissman
-      score (dec)</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>JPEG 2000</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,206</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,08</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,07</td>
-      <td class=xl7210358 align=right>21,17%</td>
-      <td class=xl7310358 align=right>1,74</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,33</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>Daala</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,499</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,25</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,25</td>
-      <td class=xl7210358 align=right>37,30%</td>
-      <td class=xl7310358 align=right>1,58</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,14</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>AV1</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,558</td>
-      <td class=xl7010358 align=right style='border-left:none'>2,57</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,17</td>
-      <td class=xl7210358 align=right>40,56%</td>
-      <td class=xl7310358 align=right>1,34</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,28</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>JPEG XR</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,019</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,27</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,25</td>
-      <td class=xl7210358 align=right>10,91%</td>
-      <td class=xl7310358 align=right>1,26</td>
-      <td class=xl7310358 align=right style='border-left:none'>0,92</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>WebP</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,284</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,97</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,14</td>
-      <td class=xl7210358 align=right>25,48%</td>
-      <td class=xl7310358 align=right>1,16</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,17</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>VP10</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,570</td>
-      <td class=xl7010358 align=right style='border-left:none'>6,75</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,18</td>
-      <td class=xl7210358 align=right>41,22%</td>
-      <td class=xl7310358 align=right>1,02</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,25</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>Reference (PNG)</td>
-      <td class=xl6910358 align=right style='border-left:none'>1,820</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,57</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,10</td>
-      <td class=xl7210358 align=right>0,00%</td>
-      <td class=xl7310358 align=right>1,00</td>
-      <td class=xl7310358 align=right style='border-left:none'>1,00</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>FLIF</td>
-      <td class=xl6910358 align=right style='border-left:none'>2,548</td>
-      <td class=xl7010358 align=right style='border-left:none'>9,92</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,97</td>
-      <td class=xl7210358 align=right>39,99%</td>
-      <td class=xl7310358 align=right>0,97</td>
-      <td class=xl7310358 align=right style='border-left:none'>0,94</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>BPG</td>
-      <td class=xl6910358 align=right style='border-left:none'>1,807</td>
-      <td class=xl7010358 align=right style='border-left:none'>0,76</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,69</td>
-      <td class=xl7210358 align=right>-0,73%</td>
-      <td class=xl7310358 align=right>0,95</td>
-      <td class=xl7310358 align=right style='border-left:none'>0,70</td>
-     </tr>
-     <tr height=20 style='height:15.0pt'>
-      <td height=20 class=xl6810358 style='height:15.0pt'>Mozjpeg</td>
-      <td class=xl6910358 align=right style='border-left:none'>1,783</td>
-      <td class=xl7010358 align=right style='border-left:none'>1,56</td>
-      <td class=xl7110358 align=right style='border-left:none'>0,10</td>
-      <td class=xl7210358 align=right>-2,05%</td>
-      <td class=xl7310358 align=right>0,85</td>
-      <td class=xl7310358 align=right style='border-left:none'>0,98</td>
-     </tr>
-    </table>
-    </div>
+<div id="results_lossless_6300" align=center x:publishsource="Excel">
 
+<table border=0 cellpadding=0 cellspacing=0 width=728 style='border-collapse:
+ collapse;table-layout:fixed;width:547pt'>
+ <col width=123 style='
+ <col width=105 span=5 style='
+ width:79pt'>
+ <col width=80 style='
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl636300 width=123 style='height:30.0pt;width:92pt'><a
+  name="RANGE!A1:G1">codec</a></td>
+  <td class=xl646300 width=105 style='border-left:none;width:79pt'>compression
+  ratio</td>
+  <td class=xl656300 width=105 style='border-left:none;width:79pt'>avg. enc.
+  time</td>
+  <td class=xl666300 width=105 style='border-left:none;width:79pt'>avg. dec.
+  time</td>
+  <td class=xl676300 width=105 style='border-left:none;width:79pt'>Reduction
+  gain from PNG</td>
+  <td class=xl676300 width=105 style='border-left:none;width:79pt'>Weissman
+  score</td>
+  <td class=xl676300 width=80 style='border-left:none;width:60pt'>Weissman
+  score (dec)</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>Daala</td>
+  <td class=xl696300 align=right style='border-left:none'>4,362</td>
+  <td class=xl706300 align=right style='border-left:none'>0,17</td>
+  <td class=xl716300 align=right style='border-left:none'>0,17</td>
+  <td class=xl726300 align=right>137,65%</td>
+  <td class=xl736300 align=right>3,02</td>
+  <td class=xl736300 align=right style='border-left:none'>2,10</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>AV1</td>
+  <td class=xl696300 align=right style='border-left:none'>4,542</td>
+  <td class=xl706300 align=right style='border-left:none'>2,95</td>
+  <td class=xl716300 align=right style='border-left:none'>0,14</td>
+  <td class=xl726300 align=right>147,46%</td>
+  <td class=xl736300 align=right>2,37</td>
+  <td class=xl736300 align=right style='border-left:none'>2,43</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>JPEG 2000</td>
+  <td class=xl696300 align=right style='border-left:none'>2,270</td>
+  <td class=xl706300 align=right style='border-left:none'>0,19</td>
+  <td class=xl716300 align=right style='border-left:none'>0,14</td>
+  <td class=xl726300 align=right>23,66%</td>
+  <td class=xl736300 align=right>1,54</td>
+  <td class=xl736300 align=right style='border-left:none'>1,13</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>JPEG XR</td>
+  <td class=xl696300 align=right style='border-left:none'>2,367</td>
+  <td class=xl706300 align=right style='border-left:none'>0,25</td>
+  <td class=xl716300 align=right style='border-left:none'>0,22</td>
+  <td class=xl726300 align=right>28,94%</td>
+  <td class=xl736300 align=right>1,53</td>
+  <td class=xl736300 align=right style='border-left:none'>1,09</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>WebP</td>
+  <td class=xl696300 align=right style='border-left:none'>2,330</td>
+  <td class=xl706300 align=right style='border-left:none'>2,99</td>
+  <td class=xl716300 align=right style='border-left:none'>0,19</td>
+  <td class=xl726300 align=right>26,96%</td>
+  <td class=xl736300 align=right>1,03</td>
+  <td class=xl736300 align=right style='border-left:none'>1,10</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>Reference (PNG)</td>
+  <td class=xl696300 align=right style='border-left:none'>1,836</td>
+  <td class=xl706300 align=right style='border-left:none'>0,68</td>
+  <td class=xl716300 align=right style='border-left:none'>0,10</td>
+  <td class=xl726300 align=right>0,00%</td>
+  <td class=xl736300 align=right>1,00</td>
+  <td class=xl736300 align=right style='border-left:none'>1,00</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>FLIF</td>
+  <td class=xl696300 align=right style='border-left:none'>2,446</td>
+  <td class=xl706300 align=right style='border-left:none'>7,27</td>
+  <td class=xl716300 align=right style='border-left:none'>1,16</td>
+  <td class=xl726300 align=right>33,24%</td>
+  <td class=xl736300 align=right>0,98</td>
+  <td class=xl736300 align=right style='border-left:none'>0,86</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>BPG</td>
+  <td class=xl696300 align=right style='border-left:none'>1,836</td>
+  <td class=xl706300 align=right style='border-left:none'>1,68</td>
+  <td class=xl716300 align=right style='border-left:none'>0,86</td>
+  <td class=xl726300 align=right>0,05%</td>
+  <td class=xl736300 align=right>0,88</td>
+  <td class=xl736300 align=right style='border-left:none'>0,67</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl686300 style='height:15.0pt'>Mozjpeg</td>
+  <td class=xl696300 align=right style='border-left:none'>1,824</td>
+  <td class=xl706300 align=right style='border-left:none'>2,03</td>
+  <td class=xl716300 align=right style='border-left:none'>0,12</td>
+  <td class=xl726300 align=right>-0,66%</td>
+  <td class=xl736300 align=right>0,85</td>
+  <td class=xl736300 align=right style='border-left:none'>0,94</td>
+ </tr>
+</table>
+
+</div>
 </body>
+
 </html>
