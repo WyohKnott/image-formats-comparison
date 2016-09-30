@@ -80,7 +80,6 @@
                         <option value="jpg"  folder="Mozjpeg" selected>JPEG</option>
                         <option value="jp2"  folder="JP2K-Kakadu">JPEG 2000</option>
                         <option value="jxr"  folder="JPEG XR">JPEG XR</option>
-                        <option value="vp10" folder="VP10">VP10</option>
                         <option value="webp" folder="WebP">WebP</option>
                         <option value="png"  folder="Original">Original</option>
                     </select>
@@ -104,7 +103,6 @@
                         <option value="jpg"  folder="Mozjpeg">JPEG</option>
                         <option value="jp2"  folder="JP2K-Kakadu">JPEG 2000</option>
                         <option value="jxr"  folder="JPEG XR">JPEG XR</option>
-                        <option value="vp10" folder="VP10">VP10</option>
                         <option value="webp" folder="WebP">WebP</option>
                         <option value="png"  folder="Original">Original</option>
                     </select>
@@ -143,15 +141,14 @@
         <p><strong><a href="lossless_stats.html" target="_blank">Lossless compression statistics</a></strong> — <strong><a href="lossy_stats.html" target="_blank">Lossy compression statistics</a></strong></p>
     </div>
     <div id="descCli" class="caption" style="border-bottom: 1px solid; font-family: 'Consolas', Courier, monospace;">
-        <p>aomenc-+03394bd.exe --passes=2 --aq-mode=1 --end-usage=q --cq-level=$Q</p>
+        <p>aomenc-+d8003fe.exe --passes=2 --aq-mode=1 --end-usage=q --cq-level=$Q</p>
         <p>bpgenc-0.9.6.exe -m 8 -f 420 -q $Q</p>
-        <p>encoder_example-+80d6a39.exe -v $Q</p>
-        <p>flif-+8e94420 --effort 90 -Q $Q</p>
-        <p>cjpeg-mozilla-3.1 -dc-scan-opt 2 -quality $Q</p>
+        <p>encoder_example-+0524355.exe -v $Q</p>
+        <p>flif-+8d780de -Q $Q</p>
+        <p>cjpeg-mozilla-3.1 -quality $Q</p>
         <p>kdu_compress-7.8 -no_info -full -precise -slope $Q</p>
-        <p>jxrencapp-+e922fa50cdf9 -d 1 -q $Q</p>
-        <p>vpxenc-+d649065.exe --passes=2  --aq-mode=1 --end-usage=q --cq-level=$Q</p>
-        <p>cwebp-+9a950c5 -mt -m 6 -q $Q</p>
+        <p>jxrencapp-+e922fa50cdf9 -q $Q</p>
+        <p>cwebp-+9310d19 -mt -q $Q</p>
     </div>
     <div id="descEnc" class="caption">
         <p>Large images were first encoded with bpgenc at q24 filesizes.
