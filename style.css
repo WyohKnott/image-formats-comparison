@@ -1,21 +1,17 @@
 body {
-    display:flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
     padding-bottom: 30px;
     font-family: Helvetica, Verdana, Arial, sans-serif;
     color: #333333;
-    width: 100%;
     font-size: 13px;
 }
-img {
-    width: 100%;
-    box-sizing: border-box;
-    border: 0;
-    padding: 20px;
-}
 table {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    color: #333333;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+img.graph {
+    width: 100%;
     box-sizing: border-box;
     border: 0;
     padding: 20px;
