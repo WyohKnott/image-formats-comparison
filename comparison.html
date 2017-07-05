@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 7.0.0">
+<link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+<title>Evolution of the AV1 codec between October 2016 and July 2017</title>
+</head>
+<body>
+<h1>Evolution of the AV1 codec between October 2016 and July 2017</h1>
+<p>The VMAF metric significatively deteriorated however all other metrics improved. The encoding time increased by a factor of around 
+3.5.</p>
+<h3>Lossless compression ratio and Weissman score:</h3>
+<table>
+<thead>
+<tr>
+<th style="border-bottom: 2px solid #000000; border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">codec</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#F8CBAD" align="center">compression ratio</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#F4B084" align="center">avg. enc. time</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#A9D08E" align="center">avg. dec. time</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Reduction gain (from PNG)</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Weissman score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Daala</td>
+<td bgcolor="#F8CBAD" align="center">4,249</td>
+<td bgcolor="#F4B084" align="center">0,19</td>
+<td bgcolor="#A9D08E" align="center">0,19</td>
+<td bgcolor="#8EA9DB" align="center">183,62%</td>
+<td bgcolor="#8EA9DB" align="center">3,05</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 oct2016</td>
+<td bgcolor="#F8CBAD" align="center">4,436</td>
+<td bgcolor="#F4B084" align="center">2,81</td>
+<td bgcolor="#A9D08E" align="center">0,14</td>
+<td bgcolor="#8EA9DB" align="center">196,13%</td>
+<td bgcolor="#8EA9DB" align="center">2,50</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017</td>
+<td bgcolor="#F8CBAD" align="center">4,565</td>
+<td bgcolor="#F4B084" align="center">9,68</td>
+<td bgcolor="#A9D08E" align="center">0,13</td>
+<td bgcolor="#8EA9DB" align="center">204,74%</td>
+<td bgcolor="#8EA9DB" align="center">2,22</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Reference (PNG)</td>
+<td bgcolor="#F8CBAD" align="center">1,498</td>
+<td bgcolor="#F4B084" align="center">0,28</td>
+<td bgcolor="#A9D08E" align="center">0,16</td>
+<td bgcolor="#8EA9DB" align="center">0,00%</td>
+<td bgcolor="#8EA9DB" align="center">1,00</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">BPG</td>
+<td bgcolor="#F8CBAD" align="center">1,750</td>
+<td bgcolor="#F4B084" align="center">2,01</td>
+<td bgcolor="#A9D08E" align="center">0,89</td>
+<td bgcolor="#8EA9DB" align="center">16,84%</td>
+<td bgcolor="#8EA9DB" align="center">0,86</td>
+</tr>
+</tbody>
+</table>
+<h4>Bits per pixel at equivalent quality according to VMAF</h4>
+<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF%20-%20comparison%20oct2016-jul2017.svg"></p>
+<h4>Bits per pixel at equivalent quality according to Y-PSNR-HVS-M</h4>
+<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-PSNR-HVS-M%20-%20comparison%20oct2016-jul2017.svg"></p>
+<h4>Bits per pixel at equivalent quality according to Y-MSSSIM</h4>
+<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-MSSSIM%20-%20comparison%20oct2016-jul2017.svg"></p>
+<h4>Bits per pixel at equivalent quality according to Y-SSIM</h4>
+<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-SSIM%20-%20comparison%20oct2016-jul2017.svg"></p>
+<h4>Bits per pixel at equivalent quality according to RGB-SSIM</h4>
+<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20RGB-SSIM%20-%20comparison%20oct2016-jul2017.svg"></p>
+</body>
+</html>

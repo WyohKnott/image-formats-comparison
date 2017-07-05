@@ -164,6 +164,7 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 ###Lossy metrics
 
 For each comparison algorithms, we plot the quality in dB in function of the mean bits per pixel on a logarithmic scale. We can then visualize which codec gives the best quality at a given bit per pixel (top left is better).
+
 ####Bits per pixel at equivalent quality according to VMAF
 
 ![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF.svg)
