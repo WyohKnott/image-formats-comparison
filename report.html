@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 6.0.2">
-<title>Image formats comparison</title>
+<meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+<title>Image formats comparison</title>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -32,7 +32,7 @@ MathJax.Hub.Config({
 <p>The image set is comprised of 50 images from <a href="https://wiki.xiph.org/Daala_Quickstart#Test_Media">the subset 1 and subset 2 maintened by Xiph</a>. All images are YCbCr 4:2:0 Y4M files.</p>
 <h3>Codecs</h3>
 <ul>
-<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The version used is built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code>.</li>
+<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016) and <code>7ebbde0c64493af978da66cb7ebe2946fb12dec2</code> (july 2017).</li>
 <li>Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.</li>
 <li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>05243557bc3e59872fd043c99dc4c17ca33bcb1b</code>.</li>
 <li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>5bff895fcab219d0ae56a300ae8bada5b546bd54</code>.</li>
@@ -44,7 +44,7 @@ MathJax.Hub.Config({
 <h3>Metrics</h3>
 <ul>
 <li>
-<p>The VMAF (Video Multi-Method Assessment Fusion) metric is computed using <code>vmafossexec</code>, provided by Netflix: <code>https://github.com/Netflix/vmaf</code>. The version used is built from GIT revision <code>0ce2aaa3f944f83817652f604daad6e82d1d72bd</code>.</p>
+<p>The VMAF (Video Multi-Method Assessment Fusion) metric is computed using <code>vmafossexec</code>, provided by Netflix: <code>https://github.com/Netflix/vmaf</code>. The version used is built from GIT revision <code>7ebbde0c64493af978da66cb7ebe2946fb12dec2</code>.</p>
 <p><code>vmafossexec</code> compares two YUV files, given their subsampling and dimensions.</p>
 </li>
 <li>
@@ -182,12 +182,20 @@ MathJax.Hub.Config({
 <td bgcolor="#8EA9DB" align="center">3,05</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1</td>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 oct2016</td>
 <td bgcolor="#F8CBAD" align="center">4,436</td>
 <td bgcolor="#F4B084" align="center">2,81</td>
 <td bgcolor="#A9D08E" align="center">0,14</td>
 <td bgcolor="#8EA9DB" align="center">196,13%</td>
 <td bgcolor="#8EA9DB" align="center">2,50</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017</td>
+<td bgcolor="#F8CBAD" align="center">4,565</td>
+<td bgcolor="#F4B084" align="center">9,68</td>
+<td bgcolor="#A9D08E" align="center">0,13</td>
+<td bgcolor="#8EA9DB" align="center">204,74%</td>
+<td bgcolor="#8EA9DB" align="center">2,22</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
@@ -250,14 +258,14 @@ MathJax.Hub.Config({
 <h3>Lossy metrics</h3>
 <p>For each comparison algorithms, we plot the quality in dB in function of the mean bits per pixel on a logarithmic scale. We can then visualize which codec gives the best quality at a given bit per pixel (top left is better).</p>
 <h4>Bits per pixel at equivalent quality according to VMAF</h4>
-<p><img class ="graph" alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF.svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF.svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-PSNR-HVS-M</h4>
-<p><img class ="graph" alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-PSNR-HVS-M.svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-PSNR-HVS-M.svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-MSSSIM</h4>
-<p><img class ="graph" alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-MSSSIM.svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-MSSSIM.svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-SSIM</h4>
-<p><img class ="graph" alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-SSIM.svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-SSIM.svg"></p>
 <h4>Bits per pixel at equivalent quality according to RGB-SSIM</h4>
-<p><img class ="graph" alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20RGB-SSIM.svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20RGB-SSIM.svg"></p>
 </body>
 </html>

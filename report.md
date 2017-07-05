@@ -1,5 +1,7 @@
 #Image formats comparison
+
 ##Introduction
+
 This study compares 8 differents image formats, AOM AV1, BPG, Daala, FLIF, JPEG XR, JPEG 2000, JPEG and WebP. We use five algorithms in order to compare each format:
 
   * VMAF: Video Multi-Method Assessment Fusion: [http://techblog.netflix.com/2016/06/toward-practical-perceptual-video.html](http://techblog.netflix.com/2016/06/toward-practical-perceptual-video.html)
@@ -9,10 +11,14 @@ This study compares 8 differents image formats, AOM AV1, BPG, Daala, FLIF, JPEG 
   * PSNR-HVS-M: Peak Signal to Noise Ratio taking into account Contrast Sensitivity Function (CSF) and between-coefficient contrast masking of DCT basis functions
 
 ## Materials
+
 ###Image set
+
 The image set is comprised of 50 images from [the subset 1 and subset 2 maintened by Xiph](https://wiki.xiph.org/Daala_Quickstart#Test_Media). All images are YCbCr 4:2:0 Y4M files.
+
 ###Codecs
-  * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The version used is built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1`.
+
+  * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The versions used are built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1` (october 2016) and `7ebbde0c64493af978da66cb7ebe2946fb12dec2` (july 2017).
   * Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.
   * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `05243557bc3e59872fd043c99dc4c17ca33bcb1b`.
   * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `5bff895fcab219d0ae56a300ae8bada5b546bd54`.
@@ -20,8 +26,10 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
   * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.8.
   * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.1
   * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version is built from GIT revision `28ce3043448bd3a941989939521cd333b6a6ae39`.
+
 ###Metrics
-  * The VMAF (Video Multi-Method Assessment Fusion) metric is computed using `vmafossexec`, provided by Netflix: `https://github.com/Netflix/vmaf`. The version used is built from GIT revision `0ce2aaa3f944f83817652f604daad6e82d1d72bd`.
+
+  * The VMAF (Video Multi-Method Assessment Fusion) metric is computed using `vmafossexec`, provided by Netflix: `https://github.com/Netflix/vmaf`. The version used is built from GIT revision `7ebbde0c64493af978da66cb7ebe2946fb12dec2`.
 
     `vmafossexec` compares two YUV files, given their subsampling and dimensions.
     
@@ -30,6 +38,7 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
     Each metric compares two Y4M files.
 
 ###Tools
+
   * `ffmpeg` is used for image formats conversion. The version used is ffmpeg 3.1.4.
   * `gm identify` is used to determine the width and height of images. The version used is GraphicsMagick 1.3.25.
   * `bc` is used for BASH inline calculations . The version used is bc 1.06.95.
@@ -37,11 +46,15 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
   *  A spreedsheet application, either Excel or LibreOffice Calc.
 
 ##Methods
+
 ###Image conversion
+
 Each Y4M image is exported to 4:2:0 PNG, YUV and PPM files with FFMPEG:
 
-```ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]```
+`ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]`
+
 ###Image compression
+
 All images are compressed losslessly and over a range of qualities for each codec:
 
   * BPG: 
@@ -87,6 +100,7 @@ All images are compressed losslessly and over a range of qualities for each code
 The BASH scripts used to generate the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
 ###Image selection
+
 The images which will be displayed on the website are then chosen among all compressed images, using the following criteria:
 
   * The BPG file at quality 24 is chosen to be the reference filesize for *large* quality images.
@@ -109,6 +123,7 @@ where `r` is the compression ratio over PPM filesize, `T` the time required to c
 The standard compressor used is the compression of a PPM image to a PNG image using FFMPEG: `ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]`
 
 ###Lossy metrics
+
 For each codec and image, we apply the following metrics, Y-SSIM, RGB-SSIM, Y-MSSSIM, PSNR-HVS-M and VMAF, over 15 image samples of increasing quality. For VMAF, we use the trained model `nflxall_vmafv4.pkl` given by Netflix.
 
 For each sample, we first decode the compressed image, then export the resulting file to 4:2:0 Y4M and YUV format using FFMPEG (`ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]`). Finally we apply the metrics over each sample, comparing it to the original image. A BASH script [19_gather_lossy_metrics.sh](https://github.com/WyohKnott/image-comparison-sources/blob/master/19_gather_lossy_metrics.sh) is available on the GIT repository to perform this operation.
@@ -122,7 +137,9 @@ We also determine the average bits per pixel for each quality sample:
 $$\overline{bpp}_{quality\ q} = \frac{ \sum\limits_{picture=1}^{50} filesize_{qp}}{\sum\limits_{picture=1}^{50} area_{p}}$$
 
 ##Results
+
 ###Raw data
+
 The following spreedsheets contain the raw data for lossless and lossy metrics:
 
   * [Lossless compression ratio and encoding speed](http://wyohknott.github.io/image-formats-comparison/lossless_results.ods)
@@ -134,7 +151,8 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 | codec             | compression ratio | avg. enc. time | avg. dec. time | Reduction gain (from PNG) | Weissman score |
 |:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
 | Daala             |   4,249   |   0,19    |   0,19    |   183,62% |   3,05    |
-| AV1               |   4,436   |   2,81    |   0,14    |   196,13% |   2,50    |
+| AV1 (oct 2016)    |   4,436   |   2,81    |   0,14    |   196,13% |   2,50    |
+| AV1 (jul 2017)    |   4,565   |   9,68    |   0,13    |   204,74% |   2,22    |
 | JPEG XR           |   2,330   |   0,12    |   0,15    |   55,50%  |   1,81    |
 | JPEG 2000         |   2,364   |   0,14    |   0,14    |   57,79%  |   1,79    |
 | FLIF              |   3,786   |   6,35    |   1,07    |   152,70% |   1,62    |
@@ -147,14 +165,24 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 
 For each comparison algorithms, we plot the quality in dB in function of the mean bits per pixel on a logarithmic scale. We can then visualize which codec gives the best quality at a given bit per pixel (top left is better).
 ####Bits per pixel at equivalent quality according to VMAF
+
 ![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF.svg)
+
 ####Bits per pixel at equivalent quality according to Y-PSNR-HVS-M
+
 ![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-PSNR-HVS-M.svg)
+
 ####Bits per pixel at equivalent quality according to Y-MSSSIM
+
 ![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-MSSSIM.svg)
+
 ####Bits per pixel at equivalent quality according to Y-SSIM
+
 ![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-SSIM.svg)
+
 ####Bits per pixel at equivalent quality according to RGB-SSIM
+
 ![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20RGB-SSIM.svg)
+
 
 
