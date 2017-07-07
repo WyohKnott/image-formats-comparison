@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
-<title>Image formats comparison</title>
+<title>report</title>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -34,12 +34,12 @@ MathJax.Hub.Config({
 <ul>
 <li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016) and <code>7ebbde0c64493af978da66cb7ebe2946fb12dec2</code> (july 2017).</li>
 <li>Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.</li>
-<li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>05243557bc3e59872fd043c99dc4c17ca33bcb1b</code>.</li>
-<li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>5bff895fcab219d0ae56a300ae8bada5b546bd54</code>.</li>
+<li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>72783687ce4963478b8ab4d97809510f40c7c855</code>.</li>
+<li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>c17459bab5399ed5009c262e9954d474f275db7f</code>.</li>
 <li>Microsoft JxrLib: <code>https://jxrlib.codeplex.com/</code>. The version used is built from GIT revision <code>e922fa50cdf9a58f40cad07553bcaa2883d3c5bf</code>.</li>
-<li>Kakadu JPEG2000: <code>http://kakadusoftware.com/downloads/</code>. The version used is 7.8.</li>
-<li>Mozilla JPEG Encoder: <code>https://github.com/mozilla/mozjpeg</code>. The version used is 3.1</li>
-<li>Google WebP: <code>https://chromium.googlesource.com/webm/libwebp</code>. The version is built from GIT revision <code>28ce3043448bd3a941989939521cd333b6a6ae39</code>.</li>
+<li>Kakadu JPEG2000: <code>http://kakadusoftware.com/downloads/</code>. The version used is 7.9.</li>
+<li>Mozilla JPEG Encoder: <code>https://github.com/mozilla/mozjpeg</code>. The version used is 3.2</li>
+<li>Google WebP: <code>https://chromium.googlesource.com/webm/libwebp</code>. The version is built from GIT revision <code>66ad84f0f9f36d38166a15a981fd7f9a1910a859</code>.</li>
 </ul>
 <h3>Metrics</h3>
 <ul>
@@ -54,7 +54,7 @@ MathJax.Hub.Config({
 </ul>
 <h3>Tools</h3>
 <ul>
-<li><code>ffmpeg</code> is used for image formats conversion. The version used is ffmpeg 3.1.4.</li>
+<li><code>ffmpeg</code> is used for image formats conversion. The version used is ffmpeg 3.3.2.</li>
 <li><code>gm identify</code> is used to determine the width and height of images. The version used is GraphicsMagick 1.3.25.</li>
 <li><code>bc</code> is used for BASH inline calculations . The version used is bc 1.06.95.</li>
 <li>GNU <code>time</code> is used to mesure computing times. The version used is GNU time 1.7.</li>
@@ -176,80 +176,80 @@ MathJax.Hub.Config({
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Daala</td>
 <td bgcolor="#F8CBAD" align="center">4,249</td>
-<td bgcolor="#F4B084" align="center">0,19</td>
-<td bgcolor="#A9D08E" align="center">0,19</td>
+<td bgcolor="#F4B084" align="center">0,13</td>
+<td bgcolor="#A9D08E" align="center">0,13</td>
 <td bgcolor="#8EA9DB" align="center">183,62%</td>
-<td bgcolor="#8EA9DB" align="center">3,05</td>
+<td bgcolor="#8EA9DB" align="center">3,10</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 oct2016</td>
 <td bgcolor="#F8CBAD" align="center">4,436</td>
-<td bgcolor="#F4B084" align="center">2,81</td>
-<td bgcolor="#A9D08E" align="center">0,14</td>
+<td bgcolor="#F4B084" align="center">1,27</td>
+<td bgcolor="#A9D08E" align="center">0,09</td>
 <td bgcolor="#8EA9DB" align="center">196,13%</td>
-<td bgcolor="#8EA9DB" align="center">2,50</td>
+<td bgcolor="#8EA9DB" align="center">2,61</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017</td>
 <td bgcolor="#F8CBAD" align="center">4,565</td>
-<td bgcolor="#F4B084" align="center">9,68</td>
+<td bgcolor="#F4B084" align="center">9,25</td>
 <td bgcolor="#A9D08E" align="center">0,13</td>
-<td bgcolor="#8EA9DB" align="center">204,74%</td>
-<td bgcolor="#8EA9DB" align="center">2,22</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
-<td bgcolor="#F8CBAD" align="center">2,330</td>
-<td bgcolor="#F4B084" align="center">0,12</td>
-<td bgcolor="#A9D08E" align="center">0,15</td>
-<td bgcolor="#8EA9DB" align="center">55,50%</td>
-<td bgcolor="#8EA9DB" align="center">1,81</td>
+<td bgcolor="#8EA9DB" align="center">204,73%</td>
+<td bgcolor="#8EA9DB" align="center">2,10</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG 2000</td>
 <td bgcolor="#F8CBAD" align="center">2,364</td>
-<td bgcolor="#F4B084" align="center">0,14</td>
-<td bgcolor="#A9D08E" align="center">0,14</td>
+<td bgcolor="#F4B084" align="center">0,08</td>
+<td bgcolor="#A9D08E" align="center">0,06</td>
 <td bgcolor="#8EA9DB" align="center">57,79%</td>
-<td bgcolor="#8EA9DB" align="center">1,79</td>
+<td bgcolor="#8EA9DB" align="center">1,91</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
+<td bgcolor="#F8CBAD" align="center">2,330</td>
+<td bgcolor="#F4B084" align="center">0,08</td>
+<td bgcolor="#A9D08E" align="center">0,09</td>
+<td bgcolor="#8EA9DB" align="center">55,50%</td>
+<td bgcolor="#8EA9DB" align="center">1,90</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">FLIF</td>
-<td bgcolor="#F8CBAD" align="center">3,786</td>
-<td bgcolor="#F4B084" align="center">6,35</td>
-<td bgcolor="#A9D08E" align="center">1,07</td>
-<td bgcolor="#8EA9DB" align="center">152,70%</td>
-<td bgcolor="#8EA9DB" align="center">1,62</td>
+<td bgcolor="#F8CBAD" align="center">3,782</td>
+<td bgcolor="#F4B084" align="center">4,54</td>
+<td bgcolor="#A9D08E" align="center">1,87</td>
+<td bgcolor="#8EA9DB" align="center">152,44%</td>
+<td bgcolor="#8EA9DB" align="center">1,59</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">WebP</td>
-<td bgcolor="#F8CBAD" align="center">3,237</td>
-<td bgcolor="#F4B084" align="center">4,17</td>
-<td bgcolor="#A9D08E" align="center">0,59</td>
-<td bgcolor="#8EA9DB" align="center">116,07%</td>
-<td bgcolor="#8EA9DB" align="center">1,46</td>
+<td bgcolor="#F8CBAD" align="center">3,241</td>
+<td bgcolor="#F4B084" align="center">11,83</td>
+<td bgcolor="#A9D08E" align="center">0,45</td>
+<td bgcolor="#8EA9DB" align="center">116,32%</td>
+<td bgcolor="#8EA9DB" align="center">1,22</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Reference (PNG)</td>
 <td bgcolor="#F8CBAD" align="center">1,498</td>
-<td bgcolor="#F4B084" align="center">0,28</td>
-<td bgcolor="#A9D08E" align="center">0,16</td>
+<td bgcolor="#F4B084" align="center">0,20</td>
+<td bgcolor="#A9D08E" align="center">0,11</td>
 <td bgcolor="#8EA9DB" align="center">0,00%</td>
 <td bgcolor="#8EA9DB" align="center">1,00</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">BPG</td>
-<td bgcolor="#F8CBAD" align="center">1,750</td>
-<td bgcolor="#F4B084" align="center">2,01</td>
-<td bgcolor="#A9D08E" align="center">0,89</td>
-<td bgcolor="#8EA9DB" align="center">16,84%</td>
-<td bgcolor="#8EA9DB" align="center">0,86</td>
+<td bgcolor="#F8CBAD" align="center">1,752</td>
+<td bgcolor="#F4B084" align="center">0,72</td>
+<td bgcolor="#A9D08E" align="center">0,68</td>
+<td bgcolor="#8EA9DB" align="center">16,83%</td>
+<td bgcolor="#8EA9DB" align="center">0,94</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Mozjpeg</td>
 <td bgcolor="#F8CBAD" align="center">1,745</td>
-<td bgcolor="#F4B084" align="center">2,43</td>
-<td bgcolor="#A9D08E" align="center">0,13</td>
+<td bgcolor="#F4B084" align="center">1,54</td>
+<td bgcolor="#A9D08E" align="center">0,09</td>
 <td bgcolor="#8EA9DB" align="center">16,51%</td>
 <td bgcolor="#8EA9DB" align="center">0,84</td>
 </tr>

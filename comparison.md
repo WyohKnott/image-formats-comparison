@@ -1,17 +1,17 @@
 #Evolution of the AV1 codec between October 2016 and July 2017
 
 The VMAF metric significatively deteriorated however all other metrics improved. The encoding time increased by a factor of around 
-3.5.
+7,3.
 
 ###Lossless compression ratio and Weissman score:
 
 | codec             | compression ratio | avg. enc. time | avg. dec. time | Reduction gain (from PNG) | Weissman score |
 |:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
-| Daala             |   4,249   |   0,19    |   0,19    |   183,62% |   3,05    |
-| AV1 (oct 2016)    |   4,436   |   2,81    |   0,14    |   196,13% |   2,50    |
-| AV1 (jul 2017)    |   4,565   |   9,68    |   0,13    |   204,74% |   2,22    |
-| Reference (PNG)   |   1,498   |   0,28    |   0,16    |   0,00%   |   1,00    |
-| BPG               |   1,750   |   2,01    |   0,89    |   16,84%  |   0,86    |
+| Daala             |   4,249   |   0,13    |   0,13    |   183,62% |   3,10    |
+| AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,61    |
+| AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   2,10    |
+| Reference (PNG)   |   1,498   |   0,20    |   0,11    |   0,00%   |   1,00    |
+| BPG               |   1,752   |   0,72    |   0,68    |   16,93%  |   0,94    |
 
 ####Bits per pixel at equivalent quality according to VMAF
 

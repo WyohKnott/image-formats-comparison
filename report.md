@@ -20,12 +20,12 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
 
   * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The versions used are built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1` (october 2016) and `7ebbde0c64493af978da66cb7ebe2946fb12dec2` (july 2017).
   * Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.
-  * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `05243557bc3e59872fd043c99dc4c17ca33bcb1b`.
-  * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `5bff895fcab219d0ae56a300ae8bada5b546bd54`.
+  * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `72783687ce4963478b8ab4d97809510f40c7c855`.
+  * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `c17459bab5399ed5009c262e9954d474f275db7f`.
   * Microsoft JxrLib: `https://jxrlib.codeplex.com/`. The version used is built from GIT revision `e922fa50cdf9a58f40cad07553bcaa2883d3c5bf`.
-  * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.8.
-  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.1
-  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version is built from GIT revision `28ce3043448bd3a941989939521cd333b6a6ae39`.
+  * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.9.
+  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.2
+  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version is built from GIT revision `66ad84f0f9f36d38166a15a981fd7f9a1910a859`.
 
 ###Metrics
 
@@ -39,7 +39,7 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
 
 ###Tools
 
-  * `ffmpeg` is used for image formats conversion. The version used is ffmpeg 3.1.4.
+  * `ffmpeg` is used for image formats conversion. The version used is ffmpeg 3.3.2.
   * `gm identify` is used to determine the width and height of images. The version used is GraphicsMagick 1.3.25.
   * `bc` is used for BASH inline calculations . The version used is bc 1.06.95.
   *  GNU `time` is used to mesure computing times. The version used is GNU time 1.7.
@@ -150,16 +150,16 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 
 | codec             | compression ratio | avg. enc. time | avg. dec. time | Reduction gain (from PNG) | Weissman score |
 |:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
-| Daala             |   4,249   |   0,19    |   0,19    |   183,62% |   3,05    |
-| AV1 (oct 2016)    |   4,436   |   2,81    |   0,14    |   196,13% |   2,50    |
-| AV1 (jul 2017)    |   4,565   |   9,68    |   0,13    |   204,74% |   2,22    |
-| JPEG XR           |   2,330   |   0,12    |   0,15    |   55,50%  |   1,81    |
-| JPEG 2000         |   2,364   |   0,14    |   0,14    |   57,79%  |   1,79    |
-| FLIF              |   3,786   |   6,35    |   1,07    |   152,70% |   1,62    |
-| WebP              |   3,237   |   4,17    |   0,59    |   116,07% |   1,46    |
-| Reference (PNG)   |   1,498   |   0,28    |   0,16    |   0,00%   |   1,00    |
-| BPG               |   1,750   |   2,01    |   0,89    |   16,84%  |   0,86    |
-| Mozjpeg           |   1,745   |   2,43    |   0,13    |   16,51%  |   0,84    |
+| Daala             |   4,249   |   0,13    |   0,13    |   183,62% |   3,10    |
+| AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,61    |
+| AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   2,10    |
+| JPEG 2000         |   2,364   |   0,08    |   0,06    |   57,79%  |   1,91    |
+| JPEG XR           |   2,330   |   0,08    |   0,09    |   55,50%  |   1,90    |
+| FLIF              |   3,782   |   4,54    |   0,87    |   152,44% |   1,59    |
+| WebP              |   3,241   |  11,83    |   0,45    |   116,32% |   1,22    |
+| Reference (PNG)   |   1,498   |   0,20    |   0,11    |   0,00%   |   1,00    |
+| BPG               |   1,752   |   0,72    |   0,68    |   16,93%  |   0,94    |
+| Mozjpeg           |   1,745   |   1,54    |   0,09    |   16,51%  |   0,84    |
 
 ###Lossy metrics
 
