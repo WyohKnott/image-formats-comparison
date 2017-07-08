@@ -8,8 +8,8 @@ The VMAF metric significatively deteriorated however all other metrics improved.
 | codec             | compression ratio | avg. enc. time | avg. dec. time | Reduction gain (from PNG) | Weissman score |
 |:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
 | Daala             |   4,249   |   0,13    |   0,13    |   183,62% |   3,10    |
-| AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,61    |
-| AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   2,10    |
+| AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,20    |
+| AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   1,77    |
 | Reference (PNG)   |   1,498   |   0,20    |   0,11    |   0,00%   |   1,00    |
 | BPG               |   1,752   |   0,72    |   0,68    |   16,93%  |   0,94    |
 

@@ -24,8 +24,9 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
   * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `c17459bab5399ed5009c262e9954d474f275db7f`.
   * Microsoft JxrLib: `https://jxrlib.codeplex.com/`. The version used is built from GIT revision `e922fa50cdf9a58f40cad07553bcaa2883d3c5bf`.
   * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.9.
-  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.2
-  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version is built from GIT revision `66ad84f0f9f36d38166a15a981fd7f9a1910a859`.
+  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.2.
+  * Google VP9: `https://chromium.googlesource.com/webm/libvpx`. The version used is built from GIT revision `6c375b9cd0647686ae5cc9bae8e94ec3d7c43e4b`.
+  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version used is built from GIT revision `66ad84f0f9f36d38166a15a981fd7f9a1910a859`.
 
 ###Metrics
 
