@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
-<title>Image formats comparison</title>
+<title>report</title>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -32,7 +32,7 @@ MathJax.Hub.Config({
 <p>The image set is comprised of 50 images from <a href="https://wiki.xiph.org/Daala_Quickstart#Test_Media">the subset 1 and subset 2 maintened by Xiph</a>. All images are YCbCr 4:2:0 Y4M files.</p>
 <h3>Codecs</h3>
 <ul>
-<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016) and <code>7ebbde0c64493af978da66cb7ebe2946fb12dec2</code> (july 2017).</li>
+<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016) and <code>ce7272d2d00f224475849c1b1bca0a97b70ea0c4</code> (july 2017).</li>
 <li>Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.</li>
 <li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>72783687ce4963478b8ab4d97809510f40c7c855</code>.</li>
 <li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>c17459bab5399ed5009c262e9954d474f275db7f</code>.</li>
@@ -135,7 +135,8 @@ MathJax.Hub.Config({
 <li>The filesize for <em>tiny</em> quality images is 60% of the <em>small</em> filesize.</li>
 </ul>
 <p>The BASH scripts used to select the compressed images are available on <a href="https://github.com/WyohKnott/image-comparison-sources">the GIT repository</a>.</p>
-<h3>Lossless encoding and decoding speeds:</h3>
+<h3>Encoding and decoding speeds:</h3>
+<h4>Lossless compression and speed</h4>
 <p>For each codec and image, the encoding and decoding speeds for lossless compression are sampled five times using GNU <code>time</code>. A BASH script <a href="https://github.com/WyohKnott/image-comparison-sources/blob/master/18_gather_lossless_metrics.sh">18_gather_lossless_metrics.sh</a> is available on the GIT repository to perform this operation.</p>
 <p>The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a <a href="https://en.wikipedia.org/wiki/Weissman_score">Weissman score</a> for each codec using the following formula:</p>
 <p>
@@ -143,6 +144,14 @@ MathJax.Hub.Config({
 </p>
 <p>where <code>r</code> is the compression ratio over PPM filesize, <code>T</code> the time required to compress, <code>̅r</code> and <code>̅T</code> the same metrics for the standard compressor, and alpha is a scaling constant.</p>
 <p>The standard compressor used is the compression of a PPM image to a PNG image using FFMPEG: <code>ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]</code></p>
+<h4>Speed relatively to PSNR-HVS-M at "large" quality:</h4>
+<p>For each codec and image, the encoding and decoding speeds for compression at "large" quality are sampled five times using GNU <code>time</code>. For each codec and image, we also sample the PSNR-HVS-M metric.</p>
+<p>The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a score analogous to a <a href="https://en.wikipedia.org/wiki/Weissman_score">Weissman score</a> for each codec by comparating the PSNR-HVS-M value to encoding speeds, using the following formula:</p>
+<p>
+<script type="math/tex; mode=display">W = \alpha {p \over \overline{p}} {\log{\overline{T}} \over \log{T}}</script>
+</p>
+<p>where <code>p</code> is the PSNR-HVS-M value, <code>T</code> the time required to compress, <code>̅r</code> and <code>̅T</code> the same metrics for the standard compressor, and alpha is a scaling constant.</p>
+<p>The standard compressor used is the compression of a JPEG image using M: <code>ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]</code></p>
 <h3>Lossy metrics</h3>
 <p>For each codec and image, we apply the following metrics, Y-SSIM, RGB-SSIM, Y-MSSSIM, PSNR-HVS-M and VMAF, over 15 image samples of increasing quality. For VMAF, we use the trained model <code>nflxall_vmafv4.pkl</code> given by Netflix.</p>
 <p>For each sample, we first decode the compressed image, then export the resulting file to 4:2:0 Y4M and YUV format using FFMPEG (<code>ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]</code>). Finally we apply the metrics over each sample, comparing it to the original image. A BASH script <a href="https://github.com/WyohKnott/image-comparison-sources/blob/master/19_gather_lossy_metrics.sh">19_gather_lossy_metrics.sh</a> is available on the GIT repository to perform this operation.</p>
@@ -158,7 +167,7 @@ MathJax.Hub.Config({
 <h3>Raw data</h3>
 <p>The following spreedsheets contain the raw data for lossless and lossy metrics:</p>
 <ul>
-<li><a href="http://wyohknott.github.io/image-formats-comparison/lossless_results.ods">Lossless compression ratio and encoding speed</a></li>
+<li><a href="http://wyohknott.github.io/image-formats-comparison/speed_results.ods">Compression ratio and encoding speed</a></li>
 <li><a href="http://wyohknott.github.io/image-formats-comparison/lossy_results.ods">Lossy metrics</a></li>
 </ul>
 <h3>Lossless compression ratio and Weissman score:</h3>
@@ -191,12 +200,28 @@ MathJax.Hub.Config({
 <td bgcolor="#8EA9DB" align="center">2,20</td>
 </tr>
 <tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9 mt</td>
+<td bgcolor="#F8CBAD" align="center">4,444</td>
+<td bgcolor="#F4B084" align="center">2,18</td>
+<td bgcolor="#A9D08E" align="center">0,08</td>
+<td bgcolor="#8EA9DB" align="center">196,65%</td>
+<td bgcolor="#8EA9DB" align="center">2,05</td>
+</tr>
+<tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9</td>
 <td bgcolor="#F8CBAD" align="center">4,444</td>
 <td bgcolor="#F4B084" align="center">2,54</td>
 <td bgcolor="#A9D08E" align="center">0,08</td>
 <td bgcolor="#8EA9DB" align="center">196,65%</td>
 <td bgcolor="#8EA9DB" align="center">2,01</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017 mt</td>
+<td bgcolor="#F8CBAD" align="center">4,554</td>
+<td bgcolor="#F4B084" align="center">3,98</td>
+<td bgcolor="#A9D08E" align="center">0,14</td>
+<td bgcolor="#8EA9DB" align="center">203,99%</td>
+<td bgcolor="#8EA9DB" align="center">1,94</td>
 </tr>
 <tr>
 <td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG 2000</td>
@@ -261,6 +286,117 @@ MathJax.Hub.Config({
 <td bgcolor="#A9D08E" align="center">0,09</td>
 <td bgcolor="#8EA9DB" align="center">16,51%</td>
 <td bgcolor="#8EA9DB" align="center">0,84</td>
+</tr>
+</tbody>
+</table>
+<h3>Speed relatively to PSNR-HVS-M at "large" quality:</h3>
+<table>
+<thead>
+<tr>
+<th style="border-bottom: 2px solid #000000; border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">codec</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#F8CBAD" align="center">PSNR-HVS-M</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#F4B084" align="center">avg. enc. time</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#A9D08E" align="center">avg. dec. time</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">PSNR-HVS-M gain (from Mozjpeg)</th>
+<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Pseudo-Weissman score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG 2000</td>
+<td bgcolor="#F8CBAD" align="center">41,77</td>
+<td bgcolor="#F4B084" align="center">0,02</td>
+<td bgcolor="#A9D08E" align="center">0,03</td>
+<td bgcolor="#8EA9DB" align="center">1,62%</td>
+<td bgcolor="#8EA9DB" align="center">1,92</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
+<td bgcolor="#F8CBAD" align="center">39,79</td>
+<td bgcolor="#F4B084" align="center">0,04</td>
+<td bgcolor="#A9D08E" align="center">0,06</td>
+<td bgcolor="#8EA9DB" align="center">-3,18%</td>
+<td bgcolor="#8EA9DB" align="center">1,49</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">WebP</td>
+<td bgcolor="#F8CBAD" align="center">41,45</td>
+<td bgcolor="#F4B084" align="center">0,18</td>
+<td bgcolor="#A9D08E" align="center">0,32</td>
+<td bgcolor="#8EA9DB" align="center">0,86%</td>
+<td bgcolor="#8EA9DB" align="center">1,10</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Reference (Mozjpeg)</td>
+<td bgcolor="#F8CBAD" align="center">41,10</td>
+<td bgcolor="#F4B084" align="center">0,29</td>
+<td bgcolor="#A9D08E" align="center">0,03</td>
+<td bgcolor="#8EA9DB" align="center">0,00%</td>
+<td bgcolor="#8EA9DB" align="center">1,00</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Daala</td>
+<td bgcolor="#F8CBAD" align="center">48,90</td>
+<td bgcolor="#F4B084" align="center">1,708</td>
+<td bgcolor="#A9D08E" align="center">0,10</td>
+<td bgcolor="#8EA9DB" align="center">18,96%</td>
+<td bgcolor="#8EA9DB" align="center">0,90</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">BPG</td>
+<td bgcolor="#F8CBAD" align="center">41,29</td>
+<td bgcolor="#F4B084" align="center">0,74</td>
+<td bgcolor="#A9D08E" align="center">0,39</td>
+<td bgcolor="#8EA9DB" align="center">0,46%</td>
+<td bgcolor="#8EA9DB" align="center">0,86</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9 (mt)</td>
+<td bgcolor="#F8CBAD" align="center">47,06</td>
+<td bgcolor="#F4B084" align="center">2,38</td>
+<td bgcolor="#A9D08E" align="center">0,04</td>
+<td bgcolor="#8EA9DB" align="center">14,51%</td>
+<td bgcolor="#8EA9DB" align="center">0,84</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (oct2016)</td>
+<td bgcolor="#F8CBAD" align="center">46,94</td>
+<td bgcolor="#F4B084" align="center">3,19</td>
+<td bgcolor="#A9D08E" align="center">0,04</td>
+<td bgcolor="#8EA9DB" align="center">14,22%</td>
+<td bgcolor="#8EA9DB" align="center">0,80</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9</td>
+<td bgcolor="#F8CBAD" align="center">47,06</td>
+<td bgcolor="#F4B084" align="center">3,33</td>
+<td bgcolor="#A9D08E" align="center">0,03</td>
+<td bgcolor="#8EA9DB" align="center">14,51%</td>
+<td bgcolor="#8EA9DB" align="center">0,80</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">FLIF</td>
+<td bgcolor="#F8CBAD" align="center">39,78</td>
+<td bgcolor="#F4B084" align="center">3,05</td>
+<td bgcolor="#A9D08E" align="center">0,60</td>
+<td bgcolor="#8EA9DB" align="center">-3,21%</td>
+<td bgcolor="#8EA9DB" align="center">0,69</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (jul2017) mt</td>
+<td bgcolor="#F8CBAD" align="center">47,79</td>
+<td bgcolor="#F4B084" align="center">39,00</td>
+<td bgcolor="#A9D08E" align="center">0,07</td>
+<td bgcolor="#8EA9DB" align="center">16,29%</td>
+<td bgcolor="#8EA9DB" align="center">0,62</td>
+</tr>
+<tr>
+<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (jul2017)</td>
+<td bgcolor="#F8CBAD" align="center">47,79</td>
+<td bgcolor="#F4B084" align="center">97,69</td>
+<td bgcolor="#A9D08E" align="center">0,07</td>
+<td bgcolor="#8EA9DB" align="center">16,27%</td>
+<td bgcolor="#8EA9DB" align="center">0,57</td>
 </tr>
 </tbody>
 </table>

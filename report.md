@@ -18,7 +18,7 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
 
 ###Codecs
 
-  * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The versions used are built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1` (october 2016) and `7ebbde0c64493af978da66cb7ebe2946fb12dec2` (july 2017).
+  * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The versions used are built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1` (october 2016) and `ce7272d2d00f224475849c1b1bca0a97b70ea0c4` (july 2017).
   * Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.
   * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `72783687ce4963478b8ab4d97809510f40c7c855`.
   * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `c17459bab5399ed5009c262e9954d474f275db7f`.
@@ -111,8 +111,9 @@ The images which will be displayed on the website are then chosen among all comp
 
 The BASH scripts used to select the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
-###Lossless encoding and decoding speeds:
+###Encoding and decoding speeds:
 
+####Lossless compression and speed
 For each codec and image, the encoding and decoding speeds for lossless compression are sampled five times using GNU `time`. A BASH script [18_gather_lossless_metrics.sh](https://github.com/WyohKnott/image-comparison-sources/blob/master/18_gather_lossless_metrics.sh) is available on the GIT repository to perform this operation.
 
 The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a [Weissman score](https://en.wikipedia.org/wiki/Weissman_score) for each codec using the following formula:
@@ -122,6 +123,20 @@ $$W = \alpha {r \over \overline{r}} {\log{\overline{T}} \over \log{T}}$$
 where `r` is the compression ratio over PPM filesize, `T` the time required to compress, `̅r` and `̅T` the same metrics for the standard compressor, and alpha is a scaling constant.
 
 The standard compressor used is the compression of a PPM image to a PNG image using FFMPEG: `ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]`
+
+####Speed relatively to PSNR-HVS-M at "large" quality:
+
+
+For each codec and image, the encoding and decoding speeds for compression at "large" quality are sampled five times using GNU `time`. For each codec and image, we also sample the PSNR-HVS-M metric.
+
+The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a score analogous to a [Weissman score](https://en.wikipedia.org/wiki/Weissman_score) for each codec by comparating the PSNR-HVS-M value to encoding speeds, using the following formula:
+
+$$W = \alpha {p \over \overline{p}} {\log{\overline{T}} \over \log{T}}$$
+
+where `p` is the PSNR-HVS-M value, `T` the time required to compress, `̅r` and `̅T` the same metrics for the standard compressor, and alpha is a scaling constant.
+
+The standard compressor used is the compression of a JPEG image using M: `ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]`
+
 
 ###Lossy metrics
 
@@ -143,7 +158,7 @@ $$\overline{bpp}_{quality\ q} = \frac{ \sum\limits_{picture=1}^{50} filesize_{qp
 
 The following spreedsheets contain the raw data for lossless and lossy metrics:
 
-  * [Lossless compression ratio and encoding speed](http://wyohknott.github.io/image-formats-comparison/lossless_results.ods)
+  * [Compression ratio and encoding speed](http://wyohknott.github.io/image-formats-comparison/speed_results.ods)
   * [Lossy metrics](http://wyohknott.github.io/image-formats-comparison/lossy_results.ods)
 
 ###Lossless compression ratio and Weissman score:
@@ -153,7 +168,9 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 |:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
 | Daala             |   4,249   |   0,13    |   0,13    |   183,62% |   3,10    |
 | AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,20    |
+| VP9 mt            |   4,444   |   2,18    |   0,08    |   196,65% |   2,05    |
 | VP9               |   4,444   |   2,54    |   0,08    |   196,65% |   2,01    |
+| AV1 (jul 2017) mt |   4,584   |   3,98    |   0,14    |   203,99% |   1,94    |
 | JPEG 2000         |   2,364   |   0,08    |   0,06    |   57,79%  |   1,91    |
 | JPEG XR           |   2,330   |   0,08    |   0,09    |   55,50%  |   1,90    |
 | AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   1,77    |
@@ -162,6 +179,24 @@ The following spreedsheets contain the raw data for lossless and lossy metrics:
 | Reference (PNG)   |   1,498   |   0,20    |   0,11    |   0,00%   |   1,00    |
 | BPG               |   1,752   |   0,72    |   0,68    |   16,93%  |   0,94    |
 | Mozjpeg           |   1,745   |   1,54    |   0,09    |   16,51%  |   0,84    |
+
+###Speed relatively to PSNR-HVS-M at "large" quality:
+
+
+| codec              | PSNR-HVS-M | avg. enc. time | avg. dec. time | PSNR-HVS-M gain (from Mozjpeg) | Pseudo-Weissman score |
+|:-------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
+| JPEG 2000          |   41,77   |   0,02    |   0,03    |   1,62%   |   1,92    |,
+| JPEG XR            |   39,79   |   0,04    |   0,06    |  -3,18%   |   1,49    |
+| WebP               |   41,45   |   0,18    |   0,32    |   0,86%   |   1,10    |
+| Reference (Mozjpeg)|   41,10   |   0,29    |   0,03    |   0,00%   |   1,00    |
+| Daala              |   48,90   |   1,78    |   0,10    |  18,96%   |   0,90    |
+| BPG                |   41,29   |   0,74    |   0,39    |   0,46%   |   0,86    |
+| VP9 mt             |   47,06   |   2,38    |   0,04    |  14,51%   |   0,84    |
+| AV1 (oct 2016)     |   46,94   |   3,19    |   0,04    |  14,22%   |   0,80    |
+| VP9                |   47,06   |   3,33    |   0,03    |  14,51%   |   0,80    |
+| FLIF               |   39,78   |   3,05    |   0,60    |  -3,21%   |   0,69    |
+| AV1 (jul 2017) mt  |   47,79   |  39,00    |   0,07    |  16,29%   |   0,62    |
+| AV1 (jul 2017)     |   47,79   |  97,69    |   0,07    |  16,27%   |   0,57    |
 
 ###Lossy metrics
 
