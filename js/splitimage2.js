@@ -1,39 +1,14 @@
-(function() {   /* alphabetize, randomize */
-    var file = document.getElementById('fileSel');
-    var fileTexts = new Array();
-    var selCandidates = new Array()
-
-    for (i = 0; i < file.length; i++) {
-        fileTexts[i] =
-            file.options[i].text.toUpperCase() + "|=" +
-            file.options[i].text + "|=" +
-            file.options[i].value + "|=" +
-            file.options[i].selected;
-    }
-    fileTexts.sort();
-
-    for (i = 0; i < file.length; i++) {
-        var parts = fileTexts[i].split('|=');
-
-        file.options[i].text = parts[1];
-        file.options[i].value = parts[2];
-        if (parts[3] == "true") { selCandidates.push(file.options[i]); }
-    }
-    file.multiple = false;
-    selCandidates[Math.floor(Math.random() * selCandidates.length)].selected = true;
-})();
-
 var workers = {
     bpg: undefined,
     jp2: undefined, jxr: undefined, webp: undefined
 };
 var nativeDec = {
     webm: false, bpg: false, flif: false, ogv: false, jp2: false, jxr: false, webp: false,
-    check: function(flag, decodedWidth, encodedUrl) {
+    check: function (flag, decodedWidth, encodedUrl) {
         var supports = this;
         var img = new Image();
         img.src = encodedUrl;
-        img.onload = img.onerror = function() {
+        img.onload = img.onerror = function () {
             supports[flag] = (img.width && img.width === decodedWidth);
         }
     }
@@ -45,7 +20,8 @@ nativeDec.check('webp', 2, 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyA
 
 var select = {
     file: getElId('fileSel'), scale: getElId('scaleSel'),
-    left: getElId('leftSel'), right: getElId('rightSel')
+    left: getElId('leftSel'), right: getElId('rightSel'),
+    subset: getElId('subsetSel')
 };
 
 var view = {
@@ -109,26 +85,26 @@ function prepCanvas(width, height, which) {
 }
 
 /* file|scale|codec|qual > setSide > setImage > processCanvasScale > setSize > setSplit */
-select.file.onchange = function() {
+select.file.onchange = function () {
     //select.scale.options[2].selected = true;
     setFile();
 };
 
 select.scale.onchange = processCanvasScale;
 
-select.left.onchange = function() {
+select.left.onchange = function () {
     checkWorkers('left');
     setSide('left');
 };
-select.right.onchange = function() {
+select.right.onchange = function () {
     checkWorkers('right');
     setSide('right');
 };
 
-leftQual.onchange = function() {
+leftQual.onchange = function () {
     setSide('left');
 };
-rightQual.onchange = function() {
+rightQual.onchange = function () {
     setSide('right');
 };
 
@@ -147,14 +123,14 @@ function getSlugName(str) {
 
     // remove accents, swap ñ for n, etc
     var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
-    var to   = "aaaaaeeeeeiiiiooooouuuunc------";
-    for (var i=0, l=from.length ; i<l ; i++) {
-    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    var to = "aaaaaeeeeeiiiiooooouuuunc------";
+    for (var i = 0, l = from.length; i < l; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
 
     str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-    .replace(/\s+/g, '-') // collapse whitespace and replace by -
-    .replace(/-+/g, '-'); // collapse dashes
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-'); // collapse dashes
 
     return str;
 }
@@ -162,8 +138,10 @@ function getSlugName(str) {
 /* Create new worker if needed. Terminate worker if unneeded. */
 function checkWorkers(sel) {
     var curSel = getSelValue(select[sel], 'value');
-    var img = { l: getSelValue(select.left, 'value'),
-                r: getSelValue(select.right, 'value') };
+    var img = {
+        l: getSelValue(select.left, 'value'),
+        r: getSelValue(select.right, 'value')
+    };
 
     processWorker('jp2');
     processWorker('jxr');
@@ -175,7 +153,7 @@ function checkWorkers(sel) {
                 workers[codec].terminate();
                 workers[codec] = undefined;
             }
-        } else if (!nativeDec[codec] && curSel==codec && workers[codec]===undefined) {
+        } else if (!nativeDec[codec] && curSel == codec && workers[codec] === undefined) {
             workers[codec] = new Worker('js/' + codec + 'Worker.js');
         }
     }
@@ -196,7 +174,7 @@ function processCanvasScale(canvas, choseSide) {
         var scale = getSelValue(scaleSel, 'value');
         var outCnvs = canvases[side + 'Scaled'];
 
-        if ( scale == 1 ) {
+        if (scale == 1) {
             viewOptions.scale = '';
             prepCanvas(100, 100, outCnvs);
             return setSize(inCanvas, side);
@@ -210,18 +188,20 @@ function processCanvasScale(canvas, choseSide) {
 
         window.pica.WW = true;
         window.pica.resizeCanvas(inCanvas, outCnvs,
-            { quality: 2, alpha: false, unsharpAmount: 0,
-              unsharpThreshold: 0, transferable: true },
-            function() { setSize(outCnvs, side); }
+            {
+                quality: 2, alpha: false, unsharpAmount: 0,
+                unsharpThreshold: 0, transferable: true
+            },
+            function () { setSize(outCnvs, side); }
         )
     }
 }
 
 function setSize(inCanvas, side) {
-	var src, width, height, el;
-	src = inCanvas.toDataURL();
-	width = inCanvas.width;
-	height = inCanvas.height;
+    var src, width, height, el;
+    src = inCanvas.toDataURL();
+    width = inCanvas.width;
+    height = inCanvas.height;
     el = view[side];
     if (first) {
         view.left.style.height = height + "px";
@@ -246,13 +226,13 @@ function setSize(inCanvas, side) {
     switchMode();
     setSplit();
     window.location.hash = (viewOptions.file).concat(viewOptions.scale,
-                                              '&',viewOptions.left,'=',viewOptions.leftQ,
-                                              '&',viewOptions.right,'=',viewOptions.rightQ);
+        '&', viewOptions.left, '=', viewOptions.leftQ,
+        '&', viewOptions.right, '=', viewOptions.rightQ);
 }
 
 function setSplit() {
     if (!timer) {
-        timer = setInterval(function() {
+        timer = setInterval(function () {
             splitStep.x *= .5;
             splitStep.y *= .5;
             splitStep.x += (splitTarget.x - split.x) * .1;
@@ -283,7 +263,7 @@ function setSplit() {
 function setImage(side, pathBase, codec, setText) {
     var canvas = canvases[side];
 
-    if ( side == 'left' || first ) {
+    if (side == 'left' || first) {
         view[side].style.backgroundColor = "#c6c6c6";
         view[side].style.backgroundImage = "";
     };
@@ -295,9 +275,9 @@ function setImage(side, pathBase, codec, setText) {
     xhr.open("GET", path, true);
     xhr.responseType = "arraybuffer";
 
-    xhr.onload = function() {
+    xhr.onload = function () {
 
-        var mimeCodec = (codec=='jxr') ? 'vnd.ms-photo' : codec;
+        var mimeCodec = (codec == 'jxr') ? 'vnd.ms-photo' : codec;
         var blob = new Blob([xhr.response], {
             type: "image/" + mimeCodec
         });
@@ -306,11 +286,11 @@ function setImage(side, pathBase, codec, setText) {
         var canvas = canvases[side];
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
         var area = canvas.width * canvas.height;
-        setText( (xhr.response.byteLength/1024).toFixed(1) + " KB", (xhr.response.byteLength/area).toFixed(2) + " bpp" );
+        setText((xhr.response.byteLength / 1024).toFixed(1) + " KB", (xhr.response.byteLength / area).toFixed(2) + " bpp");
 
         if (codec == 'bpg') {
             var bpg = new BPGDecoder(canvas.getContext("2d"));
-            bpg.onload = function() {
+            bpg.onload = function () {
                 canvas.width = bpg.imageData.width;
                 canvas.height = bpg.imageData.height;
                 canvas.getContext("2d").putImageData(bpg.imageData, 0, 0);
@@ -320,14 +300,14 @@ function setImage(side, pathBase, codec, setText) {
             bpg.load(blobPath);
         } else {
             var image = new Image();
-            image.onload = function() {
+            image.onload = function () {
                 canvas.width = image.width;
                 canvas.height = image.height;
                 canvas.getContext("2d").drawImage(image, 0, 0);
                 processCanvasScale(canvas, side);
                 window.URL.revokeObjectURL(blobPath);
             };
-            image.onerror = function() {
+            image.onerror = function () {
                 var arrayData = new Uint8Array(xhr.response);
 
                 if (codec == 'jp2' || codec == 'j2k') {
@@ -335,8 +315,8 @@ function setImage(side, pathBase, codec, setText) {
                     j2kArrayToCanvas(arrayData, codec, canvas);
                 } else if (codec == 'jxr') {
                     /* JPEG XR decoding */
-                    workers.jxr.onmessage = function(event) {
-                        var jxrBmp = new Blob([new DataView(event.data.buffer)], {type: "image/bmp"});
+                    workers.jxr.onmessage = function (event) {
+                        var jxrBmp = new Blob([new DataView(event.data.buffer)], { type: "image/bmp" });
                         jxrBmpToCanvas(jxrBmp, canvas);
                     };
                     if (workers.jxr !== undefined) { workers.jxr.postMessage(xhr.response); }
@@ -350,49 +330,49 @@ function setImage(side, pathBase, codec, setText) {
                     image.src = urlFolder.concat(pathBase, '/', urlFile, '.', 'png');
                 } else if (codec == 'webm') {
                     image.src = urlFolder.concat(pathBase, '/', urlFile, '.', 'png');
-                }  else { console.error("No support for " + url); }
+                } else { console.error("No support for " + url); }
             };
             image.src = blobPath;
         }
     };
     xhr.send();
 
-	function j2kArrayToCanvas(encData, codec, canvas) {
-	    workers.jp2.onmessage = function(event) {
-	        var bitmap = event.data.data;
-	        if (!bitmap) { return false; }
+    function j2kArrayToCanvas(encData, codec, canvas) {
+        workers.jp2.onmessage = function (event) {
+            var bitmap = event.data.data;
+            if (!bitmap) { return false; }
 
-	        canvas.width = event.data.width;
-	        canvas.height = event.data.height;
-	        var ctx = canvas.getContext("2d");
-	        var output = ctx.createImageData(canvas.width, canvas.height);
+            canvas.width = event.data.width;
+            canvas.height = event.data.height;
+            var ctx = canvas.getContext("2d");
+            var output = ctx.createImageData(canvas.width, canvas.height);
             var outputData = output.data;
 
             var pixelsPerChannel = canvas.width * canvas.height;
-	        var i = 0,
-	            j = 0;
-	        while (i < outputData.length && j < pixelsPerChannel) {
-	            outputData[i] = bitmap[j]; // R
-	            outputData[i + 1] = bitmap[j + pixelsPerChannel]; // G
-	            outputData[i + 2] = bitmap[j + (2 * pixelsPerChannel)]; // B
-	            outputData[i + 3] = 255; // A
-	            i += 4;
-	            j += 1;
-	        };
-	        ctx.putImageData(output, 0, 0);
-	        processCanvasScale(canvas, side);
-	    };
-	    if (workers.jp2 !== undefined) {
-	        workers.jp2.postMessage({
-	            bytes: encData,
-	            extension: codec
-	        });
-	    } else console.error("Cannot decode JPEG 2000.");
-	};
+            var i = 0,
+                j = 0;
+            while (i < outputData.length && j < pixelsPerChannel) {
+                outputData[i] = bitmap[j]; // R
+                outputData[i + 1] = bitmap[j + pixelsPerChannel]; // G
+                outputData[i + 2] = bitmap[j + (2 * pixelsPerChannel)]; // B
+                outputData[i + 3] = 255; // A
+                i += 4;
+                j += 1;
+            };
+            ctx.putImageData(output, 0, 0);
+            processCanvasScale(canvas, side);
+        };
+        if (workers.jp2 !== undefined) {
+            workers.jp2.postMessage({
+                bytes: encData,
+                extension: codec
+            });
+        } else console.error("Cannot decode JPEG 2000.");
+    };
     function jxrBmpToCanvas(jxrBmp, canvas) {
         var bmpUrl = window.URL.createObjectURL(jxrBmp);
         var img = new Image();
-        img.onload = function() {
+        img.onload = function () {
             canvas.width = img.width;
             canvas.height = img.height;
             canvas.getContext("2d").drawImage(img, 0, 0);
@@ -401,47 +381,47 @@ function setImage(side, pathBase, codec, setText) {
         };
         img.src = bmpUrl;
     };
-	function webpArrayToCanvas(encData, canvas) {
-	    workers.webp.onmessage = function(event) {
-	        var bitmap = event.data.bitmap;
-	        var biWidth = event.data.width;
-	        var biHeight = event.data.height;
-	        if (!bitmap) { return false; }
+    function webpArrayToCanvas(encData, canvas) {
+        workers.webp.onmessage = function (event) {
+            var bitmap = event.data.bitmap;
+            var biWidth = event.data.width;
+            var biHeight = event.data.height;
+            if (!bitmap) { return false; }
 
-	        canvas.width = biWidth;
-	        canvas.height = biHeight;
-	        var ctx = canvas.getContext("2d");
-	        var output = ctx.createImageData(canvas.width, canvas.height);
-	        var outputData = output.data;
+            canvas.width = biWidth;
+            canvas.height = biHeight;
+            var ctx = canvas.getContext("2d");
+            var output = ctx.createImageData(canvas.width, canvas.height);
+            var outputData = output.data;
 
-	        for (var h = 0; h < biHeight; h++) {
-	            for (var w = 0; w < biWidth; w++) {
-	                outputData[0 + w * 4 + (biWidth * 4) * h] = bitmap[1 + w * 4 + (biWidth * 4) * h];
-	                outputData[1 + w * 4 + (biWidth * 4) * h] = bitmap[2 + w * 4 + (biWidth * 4) * h];
-	                outputData[2 + w * 4 + (biWidth * 4) * h] = bitmap[3 + w * 4 + (biWidth * 4) * h];
-	                outputData[3 + w * 4 + (biWidth * 4) * h] = bitmap[0 + w * 4 + (biWidth * 4) * h];
-	            };
-	        };
-	        ctx.putImageData(output, 0, 0);
-	        processCanvasScale(canvas, side);
-	    };
-	    if (workers.webp !== undefined) {
-	        workers.webp.postMessage(encData);
-	    } else console.error("Cannot decode WebP.");
-	}
+            for (var h = 0; h < biHeight; h++) {
+                for (var w = 0; w < biWidth; w++) {
+                    outputData[0 + w * 4 + (biWidth * 4) * h] = bitmap[1 + w * 4 + (biWidth * 4) * h];
+                    outputData[1 + w * 4 + (biWidth * 4) * h] = bitmap[2 + w * 4 + (biWidth * 4) * h];
+                    outputData[2 + w * 4 + (biWidth * 4) * h] = bitmap[3 + w * 4 + (biWidth * 4) * h];
+                    outputData[3 + w * 4 + (biWidth * 4) * h] = bitmap[0 + w * 4 + (biWidth * 4) * h];
+                };
+            };
+            ctx.putImageData(output, 0, 0);
+            processCanvasScale(canvas, side);
+        };
+        if (workers.webp !== undefined) {
+            workers.webp.postMessage(encData);
+        } else console.error("Cannot decode WebP.");
+    }
 }
 
 function setSide(side) {
-	var isRight = (side == 'right') ? 1 : 0;
-	var whichQual = (isRight) ? rightQual : leftQual;
+    var isRight = (side == 'right') ? 1 : 0;
+    var whichQual = (isRight) ? rightQual : leftQual;
     var image = getSelValue(select[side], 'value');
     var pathBase = getSelValue(select[side], 'folder');
 
     if (pathBase != 'Original') {
-        whichQual.disabled=false;
+        whichQual.disabled = false;
         var quality = whichQual.options[whichQual.selectedIndex].innerHTML.toLowerCase() + '/';
     } else {
-        whichQual.disabled=true;
+        whichQual.disabled = true;
         var quality = '';
     }
 
@@ -450,7 +430,7 @@ function setSide(side) {
     viewOptions[side + 'Q'] = getSelValue(whichQual, 'value');
 
     setImage(side.toLowerCase(), pathBase, image,
-        function(kbytes, bpp) {
+        function (kbytes, bpp) {
             infoText[side].innerHTML = (isRight) ? "&rarr;&nbsp;" + kbytes + "<br>&emsp;&nbsp;" + bpp : kbytes + "&nbsp;&larr;" + "<br>" + "\n" + bpp;
             textHeight = (isRight) ? textHeight : infoText[side].offsetHeight;
         });
@@ -458,14 +438,6 @@ function setSide(side) {
 
 function setFile() {
     urlFile = getSelValue(select.file, 'value');
-    /*if (urlFile === 'random') {
-        var chosen = getRandExtra();
-
-        urlFile = chosen.name;
-        urlFolder = 'randomextras/';
-
-        select.file.options[select.file.options.length - 2].selected = true;
-    }*/
 
     /* Flag for special processing when both left & right are both new. */
     first = 1;
@@ -474,16 +446,6 @@ function setFile() {
 
     setSide('right');
     setSide('left');
-}
-
-function loadScript(url, callback) {
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.onload = callback;
-    script.src = url;
-
-    head.appendChild(script);
 }
 
 function moveSplit(event) {
@@ -508,7 +470,7 @@ function switchMode(keyCode) {
         var switchTo = (currLeft) ? 'right' : 'left'
 
         infoText.center.innerHTML = getSelValue(select[switchTo], 'folder') + ' '
-                                  + infoText[switchTo].innerHTML.replace(/&nbsp;/g, '').replace(/←|→/g, '');
+            + infoText[switchTo].innerHTML.replace(/&nbsp;/g, '').replace(/←|→/g, '');
 
         view.left.style.borderRight = "none";
         view.left.style.opacity = 1 - currLeft;
@@ -527,13 +489,12 @@ function switchMode(keyCode) {
 
 /* Process URL hash for direct links. */
 function getWindowsOptions() {
-    urlFolder = "comparisonfiles/";
     if (window.location.hash) {
         var hashArr, ampArr, imgOpts, name, scale, leftOpts, rightOpts;
 
         hashArr = (location.hash).split('#', 3);
 
-        ampArr = (hashArr.pop()+'&='+'&=').split('&', 5);
+        ampArr = (hashArr.pop() + '&=' + '&=').split('&', 5);
 
         imgOpts = ampArr[0].split('*', 2);
         leftOpts = ampArr[1].split('=', 2);
@@ -546,20 +507,20 @@ function getWindowsOptions() {
 
                 if (imgOpts[1]) {
                     var z = document.querySelector('#scaleSel [ratio="' + imgOpts[1] + '"]');
-                    if (z) {z.selected = true};
+                    if (z) { z.selected = true };
                 }
                 if (leftOpts) {
                     s = document.querySelector('#leftSel [value="' + leftOpts[0] + '"]');
-                    if (s) {s.selected = true};
+                    if (s) { s.selected = true };
                     q = document.querySelector('#leftQual [value="' + leftOpts[1] + '"]');
-                    if (q) {q.selected = true};
+                    if (q) { q.selected = true };
                     checkWorkers('left');
                 }
                 if (rightOpts) {
                     s = document.querySelector('#rightSel [value="' + rightOpts[0] + '"]');
-                    if (s) {s.selected = true};
+                    if (s) { s.selected = true };
                     q = document.querySelector('#rightQual [value="' + rightOpts[1] + '"]');
-                    if (q) {q.selected = true};
+                    if (q) { q.selected = true };
                     checkWorkers('right');
                 }
                 break;
@@ -570,28 +531,58 @@ function getWindowsOptions() {
 
 getWindowsOptions();
 
-window.addEventListener("load", function() {
-    setFile();
-    /*loadScript('randomextras/extras.js', function() {
-        var randOpt = new Option("Random", "random");
-        var blank = document.createElement("option");
-        var optGroup = document.createElement("optgroup");
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("comparisonfiles.json")
+        .then(response => response.json())
+        .then(function (json) {
+            // subset
+            var subsetSel = document.getElementById("subsetSel");
 
-        blank.disabled = true;
-        optGroup.setAttribute("label", 'More?');
+            var subsetChange = function (event) {
+                if (!event) {
+                    value = subsetSel.value;
+                } else {
+                    value = event.target.value;
+                }
+                // format
+                var leftSel = document.getElementById("leftSel");
+                var rightSel = document.getElementById("rightSel");
+                for (format of json["comparisonfiles"][value]["format"]) {
+                    var optLeft = document.createElement("option");
+                    var optRight = document.createElement("option");
+                    optLeft.setAttribute("folder", format["name"]);
+                    optLeft.text = format["name"];
+                    optLeft.value = format["extension"];
+                    leftSel.add(optLeft, null);
+                    optRight.setAttribute("folder", format["name"]);
+                    optRight.text = format["name"];
+                    optRight.value = format["extension"];
+                    rightSel.add(optRight, null);
+                }
+                // files
+                var fileSel = document.getElementById("fileSel");
+                for (file of json["comparisonfiles"][value]["files"]) {
+                    var opt = document.createElement("option");
+                    opt.value = file["filename"];
+                    opt.text = file["title"];
+                    fileSel.add(opt, null);
+                }
+            }
 
-        optGroup.appendChild(randOpt);
-        select.file.appendChild(blank);
-        select.file.appendChild(optGroup);
-    });*/
-}, false);
-window.addEventListener("keydown", function(event) {
-    /*if (event.keyCode == "82") {
-        if (select.file.options[select.file.selectedIndex].innerHTML.length == 0) {
-                select.file.options[select.file.options.length - 1].selected = true;
-                setFile();
-        }
-    }*/
+            subsetSel.onchange = subsetChange;
+
+            for (subset in json['comparisonfiles']) {
+                var opt = document.createElement("option");
+                opt.value = subset;
+                opt.text = subset;
+                subsetSel.add(opt, null);
+            }
+            subsetChange();
+            urlFolder = "comparisonfiles/" + getSelValue(select.subset, 'value') + "/";
+            setFile();
+        });
+});
+window.addEventListener("keydown", function (event) {
     switchMode(event.keyCode);
 }, false);
 
