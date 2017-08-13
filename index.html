@@ -101,7 +101,7 @@
                 target="_blank">this text file</a>.</p>
         <p>Last updated: july 2017.</p>
     </div>
-    
+
     <script>
         var workers = {
             bpg: undefined,
@@ -391,7 +391,7 @@
                 var canvas = canvases[side];
                 canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
                 var area = canvas.width * canvas.height;
-                setText((xhr.response.byteLength / 1024).toFixed(1) + " KB", (xhr.response.byteLength / area).toFixed(2) + " bpp");
+                setText((xhr.response.byteLength / 1024).toFixed(1) + " KB", (xhr.response.byteLength * 8 / area).toFixed(2) + " bpp");
 
                 if (codec == 'bpg') {
                     var bpg = new BPGDecoder(canvas.getContext("2d"));
@@ -666,7 +666,15 @@
                         }
                         // files
                         var fileSel = document.getElementById("fileSel");
-                        for (file of json["comparisonfiles"][value]["files"]) {
+                        var filesList = json["comparisonfiles"][value]["files"]
+                        filesList.sort(function(a,b) {
+                            if ( a.title < b.title )
+                                return -1;
+                            if ( a.title > b.title )
+                                return 1;
+                            return 0;
+                        })
+                        for (file of filesList) {
                             var opt = document.createElement("option");
                             opt.value = file["filename"];
                             opt.text = file["title"];
