@@ -652,10 +652,10 @@
                         // format
                         var leftSel = document.getElementById("leftSel");
                         var rightSel = document.getElementById("rightSel");
-                        for (var [index, val] of leftSel.options.entries()) {
+                        for (var [index, val] of leftSel.options) {
                             leftSel.remove(index)
                         }
-                        for (var [index, val] of rightSel.options.entries()) {
+                        for (var [index, val] of rightSel.options) {
                             rightSel.remove(index)
                         }
                         for (format of json["comparisonfiles"][value]["format"]) {
@@ -672,7 +672,7 @@
                         }
                         // files
                         var fileSel = document.getElementById("fileSel");
-                        for (var [index, val] of fileSel.options.entries()) {
+                        for (var [index, val] of fileSel.options) {
                             fileSel.remove(index)
                         }
                         var filesList = json["comparisonfiles"][value]["files"]
