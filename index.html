@@ -652,11 +652,11 @@
                         // format
                         var leftSel = document.getElementById("leftSel");
                         var rightSel = document.getElementById("rightSel");
-                        for (var [index, val] of leftSel.options) {
-                            leftSel.remove(index)
+                        while (leftSel.firstChild) {
+                            leftSel.removeChild(leftSel.firstChild);
                         }
-                        for (var [index, val] of rightSel.options) {
-                            rightSel.remove(index)
+                        while (rightSel.firstChild) {
+                            rightSel.removeChild(rightSel.firstChild);
                         }
                         for (format of json["comparisonfiles"][value]["format"]) {
                             var optLeft = document.createElement("option");
@@ -672,8 +672,8 @@
                         }
                         // files
                         var fileSel = document.getElementById("fileSel");
-                        for (var [index, val] of fileSel.options) {
-                            fileSel.remove(index)
+                        while (fileSel.firstChild) {
+                            fileSel.removeChild(fileSel.firstChild);
                         }
                         var filesList = json["comparisonfiles"][value]["files"]
                         filesList.sort(function(a,b) {
@@ -690,6 +690,7 @@
                             fileSel.add(opt, null);
                         }
                         urlFolder = "comparisonfiles/" + getSelValue(select.subset, 'value') + "/";
+                        setFile();
                     }
 
                     subsetSel.onchange = subsetChange;
