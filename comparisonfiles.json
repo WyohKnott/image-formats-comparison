@@ -249,6 +249,256 @@
                     "filename": "Fruits_oranges__jardin_japonais_2"
                 }
             ]
+        },
+        "subset2": {
+            "format": [
+                {
+                    "extension": "webm",
+                    "name": "AV1-20170809"
+                },
+                {
+                    "extension": "bpg",
+                    "name": "BPG"
+                },
+                {
+                    "extension": "ogv",
+                    "name": "DAALA"
+                },
+                {
+                    "extension": "flif",
+                    "name": "FLIF"
+                },
+                {
+                    "extension": "jxr",
+                    "name": "JXR"
+                },
+                {
+                    "extension": "jp2",
+                    "name": "KDU"
+                },
+                {
+                    "extension": "jpg",
+                    "name": "MOZJPEG"
+                },
+                {
+                    "extension": "jp2",
+                    "name": "OPENJPEG"
+                },
+                {
+                    "extension": "webp",
+                    "name": "WEBP"
+                },
+                {
+                    "extension": "webm",
+                    "name": "VP9"
+                },
+                {
+                    "extension": "png",
+                    "name": "Original"
+                }
+            ],
+            "files": [
+                {
+                    "title": "Camel",
+                    "filename": "Camelo_-_Timanfaya_-_Lanzarote_-_Illas_Canarias-_Spain-T32"
+                },
+                {
+                    "title": "77 Bombay Street",
+                    "filename": "77_Bombay_Street_Photo_by_Sven_Fischer"
+                },
+                {
+                    "title": "Baruch",
+                    "filename": "Baruch"
+                },
+                {
+                    "title": "Abandoned Railroad Signal",
+                    "filename": "Abandoned_Railroad_Signal"
+                },
+                {
+                    "title": "CRAY-2",
+                    "filename": "CRAY-2_IMG_8974.CR2"
+                },
+                {
+                    "title": "Branaunmore",
+                    "filename": "Branaunmore06(js)"
+                },
+                {
+                    "title": "St Patricks Day Parade",
+                    "filename": "Dublin_2010_St_Patricks_Day_Parade_-_Spraoi_by_infomatique"
+                },
+                {
+                    "title": "Fontaine",
+                    "filename": "Fontaine_-_Place_Stanislas_-_Nancy_-_P1300523-P1300532"
+                },
+                {
+                    "title": "Train station",
+                    "filename": "Abashiri_Station06s3"
+                },
+                {
+                    "title": "Dompropstei Hildesheim",
+                    "filename": "Dompropstei_Hildesheim"
+                },
+                {
+                    "title": "Fragata ARA Libertad",
+                    "filename": "Fragata_ARA_Libertad_(Q-2)_(3645511700)"
+                },
+                {
+                    "title": "Dom Domtreppe Severikirche",
+                    "filename": "Erfurt_Dom_Domtreppe_Severikirche_at_night"
+                },
+                {
+                    "title": "Machu Picchu",
+                    "filename": "80_-_Machu_Picchu_-_Juin_2009_-_edit.2"
+                },
+                {
+                    "title": "Corona Arch",
+                    "filename": "Corona_Arch"
+                },
+                {
+                    "title": "Brei\u00f0adalshei\u00f0i",
+                    "filename": "Brei\u00f0adalshei\u00f0i_01"
+                },
+                {
+                    "title": "Bas Relief",
+                    "filename": "Bas_Relief_Cuverville03_hq"
+                },
+                {
+                    "title": "Japan Expo",
+                    "filename": "Head_Phones_President_20110225_Japan_Expo_Sud_22"
+                },
+                {
+                    "title": "Isle Of Skye",
+                    "filename": "Isle_Of_Skye_A863_The_Cuillins"
+                },
+                {
+                    "title": "KITT",
+                    "filename": "KITT_Interior_at_Toronto_Auto_Show_2011"
+                },
+                {
+                    "title": "Kunts",
+                    "filename": "Kunts_04"
+                },
+                {
+                    "title": "Loewe von aspern",
+                    "filename": "Loewe_von_aspern2"
+                },
+                {
+                    "title": "Michigan Stadium",
+                    "filename": "Michigan_Stadium_2011"
+                },
+                {
+                    "title": "Orion Nebula",
+                    "filename": "Orion_Nebula_(M42)_part_HST_4800px"
+                },
+                {
+                    "title": "Panorama von Monaco",
+                    "filename": "Panorama_von_Monaco-La_Turbie"
+                },
+                {
+                    "title": "Otaria flavescens",
+                    "filename": "Otaria_flavescens_-_Rancho_Texas_Park_-_T\u00edas_-_Lanzarote_-PC31"
+                },
+                {
+                    "title": "Koln Night",
+                    "filename": "Koln-Night-GavinCato"
+                },
+                {
+                    "title": "JacquelineMegaw",
+                    "filename": "JacquelineMegaw"
+                },
+                {
+                    "title": "Irish Mannequin",
+                    "filename": "IrishMannequinNOLAHighsmith"
+                },
+                {
+                    "title": "Place Stanislas",
+                    "filename": "Place_Stanislas_-_Lumi\u00e8re"
+                },
+                {
+                    "title": "Linz cathedrale",
+                    "filename": "Linz-cathedrale"
+                },
+                {
+                    "title": "MagicKindom",
+                    "filename": "MagicKindom-highres-park-cc"
+                },
+                {
+                    "title": "Nan Lian Garden",
+                    "filename": "Nan_Lian_Garden_7645432"
+                },
+                {
+                    "title": "Polished slice of petrified wood",
+                    "filename": "Polished_slice_of_petrified_wood_(Large_Image)"
+                },
+                {
+                    "title": "Saint Catherine",
+                    "filename": "Saint_Catherine-Caravaggio_(1598)"
+                },
+                {
+                    "title": "Fort de Roppe",
+                    "filename": "Thomas_Bresson_-_Fort_de_Roppe_(abri-caverne)"
+                },
+                {
+                    "title": "Zoo de la Barben",
+                    "filename": "Zoo_de_la_Barben_20100605_048"
+                },
+                {
+                    "title": "La Tomatina",
+                    "filename": "La_Tomatina_(25.08.2010)_-_Spain__Bu\u00f1ol_21"
+                },
+                {
+                    "title": "Vintage car",
+                    "filename": "Red_Bull_Jungfrau_Stafette__10th_stage_-_vintage_cars_(2)"
+                },
+                {
+                    "title": "Exercises at the barre",
+                    "filename": "Exercises_at_the_barre__Prix_de_Lausanne_2010-2"
+                },
+                {
+                    "title": "Streptopelia orientalis",
+                    "filename": "Streptopelia_orientalis_-Japan-8"
+                },
+                {
+                    "title": "Porto deportivo",
+                    "filename": "Porto_deportivo_de_Vilagarc\u00eda_de_Arousa._Galiza-V24"
+                },
+                {
+                    "title": "Green Plaza",
+                    "filename": "\u0412\u0438\u0434_\u0438\u0437_Green_Plaza_065"
+                },
+                {
+                    "title": "Bodhi Baum",
+                    "filename": "Bodhi_Baum__Sri_Lanka"
+                },
+                {
+                    "title": "Unknown type crawler",
+                    "filename": "Un_known_type_crawler_(1)"
+                },
+                {
+                    "title": "Mountain",
+                    "filename": "Novafjellet__2009_09"
+                },
+                {
+                    "title": "Dirt road",
+                    "filename": "Road_to_\u00c5rstein__2010_September"
+                },
+                {
+                    "title": "Book",
+                    "filename": "Vocabulaire_de_l'acad\u00e9mie__1832_01"
+                },
+                {
+                    "title": "Pelpin cathedral",
+                    "filename": "20100701_Pelpin__cathedral__1"
+                },
+                {
+                    "title": "Euphagus cyanocephalus",
+                    "filename": "Euphagus_cyanocephalus_-Oakland__California__USA_-adult_male_with_chick-8c"
+                },
+                {
+                    "title": "Portugal vs Argentina",
+                    "filename": "Ricardo_Quaresma_(L)__Pablo_Zabaleta_(R)_\u2013_Portugal_vs._Argentina__9th_February_2011"
+                }
+            ]
         }
     }
 }
