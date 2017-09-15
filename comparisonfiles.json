@@ -4,6 +4,10 @@
             "format": [
                 {
                     "extension": "webm",
+                    "name": "AV1-20160930"
+                },
+                {
+                    "extension": "webm",
                     "name": "AV1-20170809"
                 },
                 {
