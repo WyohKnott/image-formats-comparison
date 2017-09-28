@@ -15,28 +15,28 @@
 ###Encoding times:
 
 
-![Encodinq time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(av1-20160930,av1-20170809).svg)
+![Encodinq time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(av1-20160930,av1-20170809\).svg)
 
 
 ###Bits per pixel at equivalent quality according to VMAF
 
-![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(av1-20160930,av1-20170809).svg)
+![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(av1-20160930,av1-20170809\).svg)
 
 ###Bits per pixel at equivalent quality according to Y-PSNR-HVS-M
 
-![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(av1-20160930,av1-20170809).svg)
+![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(av1-20160930,av1-20170809\).svg)
 
 ###Bits per pixel at equivalent quality according to Y-MSSSIM
 
-![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(av1-20160930,av1-20170809).svg)
+![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(av1-20160930,av1-20170809\).svg)
 
 ###Bits per pixel at equivalent quality according to Y-SSIM
 
-![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(av1-20160930,av1-20170809).svg)
+![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(av1-20160930,av1-20170809\).svg)
 
 ###Bits per pixel at equivalent quality according to RGB-SSIM
 
-![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(av1-20160930,av1-20170809).svg)
+![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(av1-20160930,av1-20170809\).svg)
 
 
 

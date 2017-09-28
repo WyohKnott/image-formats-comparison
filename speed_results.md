@@ -19,4 +19,4 @@
 
 ##Lossy compression and speed
 
-![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
+![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
