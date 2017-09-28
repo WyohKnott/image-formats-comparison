@@ -2,240 +2,131 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 6.0.2">
-<title>Image formats comparison, lossless metrics</title>
+<meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+<title>Speed results</title>
 </head>
 <body>
 <h2>Lossless compression ratio and Weissman score:</h2>
 <table>
 <thead>
 <tr>
-<th style="border-bottom: 2px solid #000000; border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">codec</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#F8CBAD" align="center">compression ratio</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#F4B084" align="center">avg. enc. time</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#A9D08E" align="center">avg. dec. time</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Reduction gain (from PNG)</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Weissman score</th>
+<th align="left">codec</th>
+<th align="center">compression ratio</th>
+<th align="center">avg. enc. time</th>
+<th align="center">avg. dec. time</th>
+<th align="center">Reduction gain (from PNG)</th>
+<th align="center">Weissman score</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Daala</td>
-<td bgcolor="#F8CBAD" align="center">4,249</td>
-<td bgcolor="#F4B084" align="center">0,13</td>
-<td bgcolor="#A9D08E" align="center">0,13</td>
-<td bgcolor="#8EA9DB" align="center">183,62%</td>
-<td bgcolor="#8EA9DB" align="center">3,10</td>
+<td align="left">Daala</td>
+<td align="center">4,249</td>
+<td align="center">0,13</td>
+<td align="center">0,13</td>
+<td align="center">183,62%</td>
+<td align="center">3,10</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 oct2016</td>
-<td bgcolor="#F8CBAD" align="center">4,436</td>
-<td bgcolor="#F4B084" align="center">1,27</td>
-<td bgcolor="#A9D08E" align="center">0,09</td>
-<td bgcolor="#8EA9DB" align="center">196,13%</td>
-<td bgcolor="#8EA9DB" align="center">2,20</td>
+<td align="left">AV1 (oct 2016)</td>
+<td align="center">4,436</td>
+<td align="center">1,27</td>
+<td align="center">0,09</td>
+<td align="center">196,13%</td>
+<td align="center">2,20</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9 mt</td>
-<td bgcolor="#F8CBAD" align="center">4,444</td>
-<td bgcolor="#F4B084" align="center">2,18</td>
-<td bgcolor="#A9D08E" align="center">0,08</td>
-<td bgcolor="#8EA9DB" align="center">196,65%</td>
-<td bgcolor="#8EA9DB" align="center">2,05</td>
+<td align="left">VP9 mt</td>
+<td align="center">4,444</td>
+<td align="center">2,18</td>
+<td align="center">0,08</td>
+<td align="center">196,65%</td>
+<td align="center">2,05</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9</td>
-<td bgcolor="#F8CBAD" align="center">4,444</td>
-<td bgcolor="#F4B084" align="center">2,54</td>
-<td bgcolor="#A9D08E" align="center">0,08</td>
-<td bgcolor="#8EA9DB" align="center">196,65%</td>
-<td bgcolor="#8EA9DB" align="center">2,01</td>
+<td align="left">VP9</td>
+<td align="center">4,444</td>
+<td align="center">2,54</td>
+<td align="center">0,08</td>
+<td align="center">196,65%</td>
+<td align="center">2,01</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017 mt</td>
-<td bgcolor="#F8CBAD" align="center">4,554</td>
-<td bgcolor="#F4B084" align="center">3,98</td>
-<td bgcolor="#A9D08E" align="center">0,14</td>
-<td bgcolor="#8EA9DB" align="center">203,99%</td>
-<td bgcolor="#8EA9DB" align="center">1,94</td>
+<td align="left">AV1 (jul 2017) mt</td>
+<td align="center">4,584</td>
+<td align="center">3,98</td>
+<td align="center">0,14</td>
+<td align="center">203,99%</td>
+<td align="center">1,94</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG 2000</td>
-<td bgcolor="#F8CBAD" align="center">2,364</td>
-<td bgcolor="#F4B084" align="center">0,08</td>
-<td bgcolor="#A9D08E" align="center">0,06</td>
-<td bgcolor="#8EA9DB" align="center">57,79%</td>
-<td bgcolor="#8EA9DB" align="center">1,91</td>
+<td align="left">JPEG 2000</td>
+<td align="center">2,364</td>
+<td align="center">0,08</td>
+<td align="center">0,06</td>
+<td align="center">57,79%</td>
+<td align="center">1,91</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
-<td bgcolor="#F8CBAD" align="center">2,330</td>
-<td bgcolor="#F4B084" align="center">0,08</td>
-<td bgcolor="#A9D08E" align="center">0,09</td>
-<td bgcolor="#8EA9DB" align="center">55,50%</td>
-<td bgcolor="#8EA9DB" align="center">1,90</td>
+<td align="left">JPEG XR</td>
+<td align="center">2,330</td>
+<td align="center">0,08</td>
+<td align="center">0,09</td>
+<td align="center">55,50%</td>
+<td align="center">1,90</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 jul2017</td>
-<td bgcolor="#F8CBAD" align="center">4,565</td>
-<td bgcolor="#F4B084" align="center">9,25</td>
-<td bgcolor="#A9D08E" align="center">0,13</td>
-<td bgcolor="#8EA9DB" align="center">204,73%</td>
-<td bgcolor="#8EA9DB" align="center">1,77</td>
+<td align="left">AV1 (jul 2017)</td>
+<td align="center">4,565</td>
+<td align="center">9,25</td>
+<td align="center">0,13</td>
+<td align="center">204,73%</td>
+<td align="center">1,77</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">FLIF</td>
-<td bgcolor="#F8CBAD" align="center">3,782</td>
-<td bgcolor="#F4B084" align="center">4,54</td>
-<td bgcolor="#A9D08E" align="center">1,87</td>
-<td bgcolor="#8EA9DB" align="center">152,44%</td>
-<td bgcolor="#8EA9DB" align="center">1,59</td>
+<td align="left">FLIF</td>
+<td align="center">3,782</td>
+<td align="center">4,54</td>
+<td align="center">0,87</td>
+<td align="center">152,44%</td>
+<td align="center">1,59</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">WebP</td>
-<td bgcolor="#F8CBAD" align="center">3,241</td>
-<td bgcolor="#F4B084" align="center">11,83</td>
-<td bgcolor="#A9D08E" align="center">0,45</td>
-<td bgcolor="#8EA9DB" align="center">116,32%</td>
-<td bgcolor="#8EA9DB" align="center">1,22</td>
+<td align="left">WebP</td>
+<td align="center">3,241</td>
+<td align="center">11,83</td>
+<td align="center">0,45</td>
+<td align="center">116,32%</td>
+<td align="center">1,22</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Reference (PNG)</td>
-<td bgcolor="#F8CBAD" align="center">1,498</td>
-<td bgcolor="#F4B084" align="center">0,20</td>
-<td bgcolor="#A9D08E" align="center">0,11</td>
-<td bgcolor="#8EA9DB" align="center">0,00%</td>
-<td bgcolor="#8EA9DB" align="center">1,00</td>
+<td align="left">Reference (PNG)</td>
+<td align="center">1,498</td>
+<td align="center">0,20</td>
+<td align="center">0,11</td>
+<td align="center">0,00%</td>
+<td align="center">1,00</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">BPG</td>
-<td bgcolor="#F8CBAD" align="center">1,752</td>
-<td bgcolor="#F4B084" align="center">0,72</td>
-<td bgcolor="#A9D08E" align="center">0,68</td>
-<td bgcolor="#8EA9DB" align="center">16,93%</td>
-<td bgcolor="#8EA9DB" align="center">0,94</td>
+<td align="left">BPG</td>
+<td align="center">1,752</td>
+<td align="center">0,72</td>
+<td align="center">0,68</td>
+<td align="center">16,93%</td>
+<td align="center">0,94</td>
 </tr>
 <tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Mozjpeg</td>
-<td bgcolor="#F8CBAD" align="center">1,745</td>
-<td bgcolor="#F4B084" align="center">1,54</td>
-<td bgcolor="#A9D08E" align="center">0,09</td>
-<td bgcolor="#8EA9DB" align="center">16,51%</td>
-<td bgcolor="#8EA9DB" align="center">0,84</td>
+<td align="left">Mozjpeg</td>
+<td align="center">1,745</td>
+<td align="center">1,54</td>
+<td align="center">0,09</td>
+<td align="center">16,51%</td>
+<td align="center">0,84</td>
 </tr>
 </tbody>
 </table>
-<h2>Speed relatively to PSNR-HVS-M at "large" quality:</h2>
-<table>
-<thead>
-<tr>
-<th style="border-bottom: 2px solid #000000; border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">codec</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#F8CBAD" align="center">PSNR-HVS-M</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#F4B084" align="center">avg. enc. time</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#A9D08E" align="center">avg. dec. time</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">PSNR-HVS-M gain (from Mozjpeg)</th>
-<th style="border-bottom: 2px solid #000000;" bgcolor="#8EA9DB" align="center">Pseudo-Weissman score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG 2000</td>
-<td bgcolor="#F8CBAD" align="center">41,77</td>
-<td bgcolor="#F4B084" align="center">0,02</td>
-<td bgcolor="#A9D08E" align="center">0,03</td>
-<td bgcolor="#8EA9DB" align="center">1,62%</td>
-<td bgcolor="#8EA9DB" align="center">1,92</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">JPEG XR</td>
-<td bgcolor="#F8CBAD" align="center">39,79</td>
-<td bgcolor="#F4B084" align="center">0,04</td>
-<td bgcolor="#A9D08E" align="center">0,06</td>
-<td bgcolor="#8EA9DB" align="center">-3,18%</td>
-<td bgcolor="#8EA9DB" align="center">1,49</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">WebP</td>
-<td bgcolor="#F8CBAD" align="center">41,45</td>
-<td bgcolor="#F4B084" align="center">0,18</td>
-<td bgcolor="#A9D08E" align="center">0,32</td>
-<td bgcolor="#8EA9DB" align="center">0,86%</td>
-<td bgcolor="#8EA9DB" align="center">1,10</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Reference (Mozjpeg)</td>
-<td bgcolor="#F8CBAD" align="center">41,10</td>
-<td bgcolor="#F4B084" align="center">0,29</td>
-<td bgcolor="#A9D08E" align="center">0,03</td>
-<td bgcolor="#8EA9DB" align="center">0,00%</td>
-<td bgcolor="#8EA9DB" align="center">1,00</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">Daala</td>
-<td bgcolor="#F8CBAD" align="center">48,90</td>
-<td bgcolor="#F4B084" align="center">1,708</td>
-<td bgcolor="#A9D08E" align="center">0,10</td>
-<td bgcolor="#8EA9DB" align="center">18,96%</td>
-<td bgcolor="#8EA9DB" align="center">0,90</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">BPG</td>
-<td bgcolor="#F8CBAD" align="center">41,29</td>
-<td bgcolor="#F4B084" align="center">0,74</td>
-<td bgcolor="#A9D08E" align="center">0,39</td>
-<td bgcolor="#8EA9DB" align="center">0,46%</td>
-<td bgcolor="#8EA9DB" align="center">0,86</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9 (mt)</td>
-<td bgcolor="#F8CBAD" align="center">47,06</td>
-<td bgcolor="#F4B084" align="center">2,38</td>
-<td bgcolor="#A9D08E" align="center">0,04</td>
-<td bgcolor="#8EA9DB" align="center">14,51%</td>
-<td bgcolor="#8EA9DB" align="center">0,84</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (oct2016)</td>
-<td bgcolor="#F8CBAD" align="center">46,94</td>
-<td bgcolor="#F4B084" align="center">3,19</td>
-<td bgcolor="#A9D08E" align="center">0,04</td>
-<td bgcolor="#8EA9DB" align="center">14,22%</td>
-<td bgcolor="#8EA9DB" align="center">0,80</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">VP9</td>
-<td bgcolor="#F8CBAD" align="center">47,06</td>
-<td bgcolor="#F4B084" align="center">3,33</td>
-<td bgcolor="#A9D08E" align="center">0,03</td>
-<td bgcolor="#8EA9DB" align="center">14,51%</td>
-<td bgcolor="#8EA9DB" align="center">0,80</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">FLIF</td>
-<td bgcolor="#F8CBAD" align="center">39,78</td>
-<td bgcolor="#F4B084" align="center">3,05</td>
-<td bgcolor="#A9D08E" align="center">0,60</td>
-<td bgcolor="#8EA9DB" align="center">-3,21%</td>
-<td bgcolor="#8EA9DB" align="center">0,69</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (jul2017) mt</td>
-<td bgcolor="#F8CBAD" align="center">47,79</td>
-<td bgcolor="#F4B084" align="center">39,00</td>
-<td bgcolor="#A9D08E" align="center">0,07</td>
-<td bgcolor="#8EA9DB" align="center">16,29%</td>
-<td bgcolor="#8EA9DB" align="center">0,62</td>
-</tr>
-<tr>
-<td style="border-right: 2px solid #000000;" bgcolor="#DDEBF7" align="left">AV1 (jul2017)</td>
-<td bgcolor="#F8CBAD" align="center">47,79</td>
-<td bgcolor="#F4B084" align="center">97,69</td>
-<td bgcolor="#A9D08E" align="center">0,07</td>
-<td bgcolor="#8EA9DB" align="center">16,27%</td>
-<td bgcolor="#8EA9DB" align="center">0,57</td>
-</tr>
-</tbody>
-</table>
+<h2>Lossy compression and speed</h2>
+<p><img alt="Encoding time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809">.svg)</p>
 </body>
 </html>

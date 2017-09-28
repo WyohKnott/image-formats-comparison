@@ -1,4 +1,3 @@
-*.aom -delta
 *.bpg -delta
 *.flif -delta
 *.jp2 -delta
@@ -6,5 +5,5 @@
 *.jxr -delta
 *.ogv -delta
 *.png -delta
-*.vp10 -delta
 *.webp -delta
+*.tar.gz -delta

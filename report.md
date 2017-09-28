@@ -42,9 +42,9 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
 
   * `ffmpeg` is used for image formats conversion. The version used is ffmpeg 3.3.2.
   * `gm identify` is used to determine the width and height of images. The version used is GraphicsMagick 1.3.25.
-  * `bc` is used for BASH inline calculations . The version used is bc 1.06.95.
-  *  GNU `time` is used to mesure computing times. The version used is GNU time 1.7.
-  *  A spreedsheet application, either Excel or LibreOffice Calc.
+  *  Python 3 timeit is used to mesure computing times.
+  *  Python 3 Pandas and Numpy are used to compute means.
+  *  Python 3 Matplot is used to plot graphs.
 
 ##Methods
 
@@ -98,7 +98,7 @@ All images are compressed losslessly and over a range of qualities for each code
     - lossless: `cwebp -mt -z 9 -lossless -o [output] [input(PNG)]`
     - between q=5 and q=95: `cwebp -mt -q $q -o [output] [input(PNG)]`
 
-The BASH scripts used to generate the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
+The Python script used to generate the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
 ###Image selection
 
@@ -109,40 +109,25 @@ The images which will be displayed on the website are then chosen among all comp
   * The filesize for *small* quality images is 60% of the *medium* filesize.
   * The filesize for *tiny* quality images is 60% of the *small* filesize.
 
-The BASH scripts used to select the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
+The Python script used to select the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
 ###Encoding and decoding speeds:
 
 ####Lossless compression and speed
-For each codec and image, the encoding and decoding speeds for lossless compression are sampled five times using GNU `time`. A BASH script [18_gather_lossless_metrics.sh](https://github.com/WyohKnott/image-comparison-sources/blob/master/18_gather_lossless_metrics.sh) is available on the GIT repository to perform this operation.
-
+For each codec and image, the encoding and decoding speeds for lossless compression are sampled five times using GNU `time`
 The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a [Weissman score](https://en.wikipedia.org/wiki/Weissman_score) for each codec using the following formula:
 
 $$W = \alpha {r \over \overline{r}} {\log{\overline{T}} \over \log{T}}$$
 
 where `r` is the compression ratio over PPM filesize, `T` the time required to compress, `̅r` and `̅T` the same metrics for the standard compressor, and alpha is a scaling constant.
 
-The standard compressor used is the compression of a PPM image to a PNG image using FFMPEG: `ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]`
-
-####Speed relatively to PSNR-HVS-M at "large" quality:
-
-
-For each codec and image, the encoding and decoding speeds for compression at "large" quality are sampled five times using GNU `time`. For each codec and image, we also sample the PSNR-HVS-M metric.
-
-The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a score analogous to a [Weissman score](https://en.wikipedia.org/wiki/Weissman_score) for each codec by comparating the PSNR-HVS-M value to encoding speeds, using the following formula:
-
-$$W = \alpha {p \over \overline{p}} {\log{\overline{T}} \over \log{T}}$$
-
-where `p` is the PSNR-HVS-M value, `T` the time required to compress, `̅r` and `̅T` the same metrics for the standard compressor, and alpha is a scaling constant.
-
-The standard compressor used is the compression of a JPEG image using M: `ffmpeg -loglevel quiet -y -i [input(PPM)] -pix_fmt yuv420p [output(PNG)]`
-
+The standard compressor used is the compression of a JPG image using mozjpeg.
 
 ###Lossy metrics
 
 For each codec and image, we apply the following metrics, Y-SSIM, RGB-SSIM, Y-MSSSIM, PSNR-HVS-M and VMAF, over 15 image samples of increasing quality. For VMAF, we use the trained model `nflxall_vmafv4.pkl` given by Netflix.
 
-For each sample, we first decode the compressed image, then export the resulting file to 4:2:0 Y4M and YUV format using FFMPEG (`ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]`). Finally we apply the metrics over each sample, comparing it to the original image. A BASH script [19_gather_lossy_metrics.sh](https://github.com/WyohKnott/image-comparison-sources/blob/master/19_gather_lossy_metrics.sh) is available on the GIT repository to perform this operation.
+For each sample, we first decode the compressed image, then export the resulting file to 4:2:0 Y4M and YUV format using FFMPEG (`ffmpeg -loglevel quiet -y -i [input] -pix_fmt yuv420p [output]`). Finally we apply the metrics over each sample, comparing it to the original image.
 
 For each codec, we calculate the arithmetic mean of each metric over the entire set of images, weighted by the area of the corresponding picture, for the 15 samples of increasing quality:
 
@@ -156,47 +141,32 @@ $$\overline{bpp}_{quality\ q} = \frac{ \sum\limits_{picture=1}^{50} filesize_{qp
 
 ###Raw data
 
-The following spreedsheets contain the raw data for lossless and lossy metrics:
+The following archives contain the raw data in csv format for subset1 and subset2:
 
-  * [Compression ratio and encoding speed](http://wyohknott.github.io/image-formats-comparison/speed_results.ods)
-  * [Lossy metrics](http://wyohknott.github.io/image-formats-comparison/lossy_results.ods)
+  * [Subset1](http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz)
+  * [Subset2](http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz)
 
 ###Lossless compression ratio and Weissman score:
 
 
-| codec             | compression ratio | avg. enc. time | avg. dec. time | Reduction gain (from PNG) | Weissman score |
-|:------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
-| Daala             |   4,249   |   0,13    |   0,13    |   183,62% |   3,10    |
-| AV1 (oct 2016)    |   4,436   |   1,27    |   0,09    |   196,13% |   2,20    |
-| VP9 mt            |   4,444   |   2,18    |   0,08    |   196,65% |   2,05    |
-| VP9               |   4,444   |   2,54    |   0,08    |   196,65% |   2,01    |
-| AV1 (jul 2017) mt |   4,584   |   3,98    |   0,14    |   203,99% |   1,94    |
-| JPEG 2000         |   2,364   |   0,08    |   0,06    |   57,79%  |   1,91    |
-| JPEG XR           |   2,330   |   0,08    |   0,09    |   55,50%  |   1,90    |
-| AV1 (jul 2017)    |   4,565   |   9,25    |   0,13    |   204,73% |   1,77    |
-| FLIF              |   3,782   |   4,54    |   0,87    |   152,44% |   1,59    |
-| WebP              |   3,241   |  11,83    |   0,45    |   116,32% |   1,22    |
-| Reference (PNG)   |   1,498   |   0,20    |   0,11    |   0,00%   |   1,00    |
-| BPG               |   1,752   |   0,72    |   0,68    |   16,93%  |   0,94    |
-| Mozjpeg           |   1,745   |   1,54    |   0,09    |   16,51%  |   0,84    |
-
-###Speed relatively to PSNR-HVS-M at "large" quality:
+|   format   |avg_bpp|avg_compression_ratio|avg_space_saving|wavg_encode_time|wavg_decode_time|weissman_score|
+|------------|------:|--------------------:|---------------:|---------------:|---------------:|-------------:|
+|daala       |  5.791|                2.798|          0.6426|          1.4952|          1.2960|        3.2145|
+|vp9         |  5.578|                2.905|          0.6558|         10.6933|          0.9304|        2.6297|
+|av1-20160930|  5.565|                2.912|          0.6566|         31.1063|          1.6304|        2.3640|
+|av1-20170809|  5.366|                3.020|          0.6689|        118.6229|          1.1642|        2.1707|
+|jxr         | 10.389|                1.560|          0.3589|          0.7528|          0.6119|        1.9776|
+|flif        |  6.553|                2.473|          0.5957|         44.8139|          6.7067|        1.9391|
+|kdu         | 10.362|                1.564|          0.3606|          0.9992|          0.9789|        1.9015|
+|webp        |  7.629|                2.124|          0.5293|         81.4525|          4.1099|        1.5775|
+|openjpeg    | 10.362|                1.564|          0.3606|          4.1349|          2.2590|        1.5771|
+|mozjpeg     | 14.252|                1.137|          0.1205|         14.0222|          0.6776|        1.0000|
+|bpg         | 14.095|                1.150|          0.1303|         21.4230|          5.8602|        0.9682|
 
 
-| codec              | PSNR-HVS-M | avg. enc. time | avg. dec. time | PSNR-HVS-M gain (from Mozjpeg) | Pseudo-Weissman score |
-|:-------------------|:-----------------:|:--------------:|:--------------:|:-------------------------:|:--------------:|
-| JPEG 2000          |   41,77   |   0,02    |   0,03    |   1,62%   |   1,92    |,
-| JPEG XR            |   39,79   |   0,04    |   0,06    |  -3,18%   |   1,49    |
-| WebP               |   41,45   |   0,18    |   0,32    |   0,86%   |   1,10    |
-| Reference (Mozjpeg)|   41,10   |   0,29    |   0,03    |   0,00%   |   1,00    |
-| Daala              |   48,90   |   1,78    |   0,10    |  18,96%   |   0,90    |
-| BPG                |   41,29   |   0,74    |   0,39    |   0,46%   |   0,86    |
-| VP9 mt             |   47,06   |   2,38    |   0,04    |  14,51%   |   0,84    |
-| AV1 (oct 2016)     |   46,94   |   3,19    |   0,04    |  14,22%   |   0,80    |
-| VP9                |   47,06   |   3,33    |   0,03    |  14,51%   |   0,80    |
-| FLIF               |   39,78   |   3,05    |   0,60    |  -3,21%   |   0,69    |
-| AV1 (jul 2017) mt  |   47,79   |  39,00    |   0,07    |  16,29%   |   0,62    |
-| AV1 (jul 2017)     |   47,79   |  97,69    |   0,07    |  16,27%   |   0,57    |
+###Lossy compression and speed
+
+![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 ###Lossy metrics
 
@@ -204,23 +174,23 @@ For each comparison algorithms, we plot the quality in dB in function of the mea
 
 ####Bits per pixel at equivalent quality according to VMAF
 
-![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20VMAF.svg)
+![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 ####Bits per pixel at equivalent quality according to Y-PSNR-HVS-M
 
-![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-PSNR-HVS-M.svg)
+![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 ####Bits per pixel at equivalent quality according to Y-MSSSIM
 
-![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-MSSSIM.svg)
+![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 ####Bits per pixel at equivalent quality according to Y-SSIM
 
-![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20Y-SSIM.svg)
+![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 ####Bits per pixel at equivalent quality according to RGB-SSIM
 
-![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/Bits%20per%20pixel%20at%20equivalent%20quality%20according%20to%20RGB-SSIM.svg)
+![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809).svg)
 
 
 
