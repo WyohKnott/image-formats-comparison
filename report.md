@@ -27,6 +27,7 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
   * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.2.
   * Google VP9: `https://chromium.googlesource.com/webm/libvpx`. The version used is built from GIT revision `6c375b9cd0647686ae5cc9bae8e94ec3d7c43e4b`.
   * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version used is built from GIT revision `66ad84f0f9f36d38166a15a981fd7f9a1910a859`.
+  * Google Pik: `https://github.com/google/pik`. The version used is built from GIT revision `52f2d45cc8e35e45278da54615bb8b11b5066f16`.
 
 ###Metrics
 
@@ -92,12 +93,15 @@ All images are compressed losslessly and over a range of qualities for each code
   
     - lossless: `cjpeg -rgb -quality 100 [input(PNG)] > [output]`
     - between q=5 and q=95: `cjpeg -quality $q [input(PNG)] > [output]`
+
+  * Pik:
+  
+    - between q=0.5 and q=3.0: `cpik [input(PNG)] [output] --distance $q`
   
   * WebP:
   
     - lossless: `cwebp -mt -z 9 -lossless -o [output] [input(PNG)]`
     - between q=5 and q=95: `cwebp -mt -q $q -o [output] [input(PNG)]`
-
 The Python script used to generate the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
 ###Image selection
@@ -166,7 +170,7 @@ The following archives contain the raw data in csv format for subset1 and subset
 
 ###Lossy compression and speed
 
-![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg
 
 ###Lossy metrics
 
@@ -174,23 +178,23 @@ For each comparison algorithms, we plot the quality in dB in function of the mea
 
 ####Bits per pixel at equivalent quality according to VMAF
 
-![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-PSNR-HVS-M
 
-![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-MSSSIM
 
-![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-SSIM
 
-![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to RGB-SSIM
 
-![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809\).svg)
+![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik\).svg)
 
 
 

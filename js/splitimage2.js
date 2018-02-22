@@ -3,7 +3,7 @@ var workers = {
     jp2: undefined, jxr: undefined, webp: undefined
 };
 var nativeDec = {
-    webm: false, bpg: false, flif: false, ogv: false, jp2: false, jxr: false, webp: false,
+    webm: false, bpg: false, flif: false, ogv: false, jp2: false, jxr: false, webp: false, pik: false,
     check: function (flag, decodedWidth, encodedUrl) {
         var supports = this;
         var img = new Image();
@@ -329,6 +329,8 @@ function setImage(side, pathBase, codec, setText) {
                 } else if (codec == 'ogv') {
                     image.src = urlFolder.concat(pathBase, '/', urlFile, '.', 'png');
                 } else if (codec == 'webm') {
+                    image.src = urlFolder.concat(pathBase, '/', urlFile, '.', 'png');
+                } else if (codec == 'pik') {
                     image.src = urlFolder.concat(pathBase, '/', urlFile, '.', 'png');
                 } else { console.error("No support for " + url); }
             };

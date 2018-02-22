@@ -39,6 +39,10 @@
                     "name": "OPENJPEG"
                 },
                 {
+                    "extension": "pik",
+                    "name": "PIK"
+                },
+                {
                     "extension": "webm",
                     "name": "VP9"
                 },
