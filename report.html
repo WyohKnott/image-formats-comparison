@@ -32,7 +32,7 @@ MathJax.Hub.Config({
 <p>The image set is comprised of 50 images from <a href="https://wiki.xiph.org/Daala_Quickstart#Test_Media">the subset 1 and subset 2 maintened by Xiph</a>. All images are YCbCr 4:2:0 Y4M files.</p>
 <h3>Codecs</h3>
 <ul>
-<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016) and <code>ce7272d2d00f224475849c1b1bca0a97b70ea0c4</code> (july 2017).</li>
+<li>Alliance for Open Media AV1: <code>https://aomedia.googlesource.com/aom/</code>. The versions used are built from GIT revision <code>02affd269df5d8abbfc75f5bdad0c080308e0ce1</code> (october 2016), <code>ce7272d2d00f224475849c1b1bca0a97b70ea0c4</code> (july 2017) and <code>7d3bd8daba6e51566f0458e3f842e246a559ea82</code> (february 2018).</li>
 <li>Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.</li>
 <li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>72783687ce4963478b8ab4d97809510f40c7c855</code>.</li>
 <li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>c17459bab5399ed5009c262e9954d474f275db7f</code>.</li>
@@ -173,130 +173,126 @@ The arithmetic mean of encoding and decoding speeds are calculated over the enti
 <table>
 <thead>
 <tr>
-<th>format</th>
-<th align="right">avg_bpp</th>
-<th align="right">avg_compression_ratio</th>
-<th align="right">avg_space_saving</th>
-<th align="right">wavg_encode_time</th>
-<th align="right">wavg_decode_time</th>
-<th align="right">weissman_score</th>
+<th align="left">codec</th>
+<th align="center">avg. compression ratio</th>
+<th align="center">avg. space saving</th>
+<th align="center">wavg. encode time</th>
+<th align="center">wavg. decode time</th>
+<th align="center">Weissman score</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>daala</td>
-<td align="right">5.791</td>
-<td align="right">2.798</td>
-<td align="right">0.6426</td>
-<td align="right">1.4952</td>
-<td align="right">1.2960</td>
-<td align="right">3.2145</td>
+<td align="left">daala</td>
+<td align="center">2.798</td>
+<td align="center">64.26%</td>
+<td align="center">1.4952</td>
+<td align="center">1.2960</td>
+<td align="center">3.2145</td>
 </tr>
 <tr>
-<td>vp9</td>
-<td align="right">5.578</td>
-<td align="right">2.905</td>
-<td align="right">0.6558</td>
-<td align="right">10.6933</td>
-<td align="right">0.9304</td>
-<td align="right">2.6297</td>
+<td align="left">vp9</td>
+<td align="center">2.905</td>
+<td align="center">65.58%</td>
+<td align="center">10.6933</td>
+<td align="center">0.9304</td>
+<td align="center">2.6297</td>
 </tr>
 <tr>
-<td>av1-20160930</td>
-<td align="right">5.565</td>
-<td align="right">2.912</td>
-<td align="right">0.6566</td>
-<td align="right">31.1063</td>
-<td align="right">1.6304</td>
-<td align="right">2.3640</td>
+<td align="left">av1-20160930</td>
+<td align="center">2.912</td>
+<td align="center">65.66%</td>
+<td align="center">31.1063</td>
+<td align="center">1.6304</td>
+<td align="center">2.3640</td>
 </tr>
 <tr>
-<td>av1-20170809</td>
-<td align="right">5.366</td>
-<td align="right">3.020</td>
-<td align="right">0.6689</td>
-<td align="right">118.6229</td>
-<td align="right">1.1642</td>
-<td align="right">2.1707</td>
+<td align="left">av1-20170809</td>
+<td align="center">3.020</td>
+<td align="center">66.89%</td>
+<td align="center">118.6229</td>
+<td align="center">1.1642</td>
+<td align="center">2.1707</td>
 </tr>
 <tr>
-<td>jxr</td>
-<td align="right">10.389</td>
-<td align="right">1.560</td>
-<td align="right">0.3589</td>
-<td align="right">0.7528</td>
-<td align="right">0.6119</td>
-<td align="right">1.9776</td>
+<td align="left">av1-20180222</td>
+<td align="center">2.943</td>
+<td align="center">66.02%</td>
+<td align="center">97.6492</td>
+<td align="center">1.0156</td>
+<td align="center">2.1509</td>
 </tr>
 <tr>
-<td>flif</td>
-<td align="right">6.553</td>
-<td align="right">2.473</td>
-<td align="right">0.5957</td>
-<td align="right">44.8139</td>
-<td align="right">6.7067</td>
-<td align="right">1.9391</td>
+<td align="left">jxr</td>
+<td align="center">1.560</td>
+<td align="center">35.89%</td>
+<td align="center">0.7528</td>
+<td align="center">0.6119</td>
+<td align="center">1.9776</td>
 </tr>
 <tr>
-<td>kdu</td>
-<td align="right">10.362</td>
-<td align="right">1.564</td>
-<td align="right">0.3606</td>
-<td align="right">0.9992</td>
-<td align="right">0.9789</td>
-<td align="right">1.9015</td>
+<td align="left">flif</td>
+<td align="center">2.473</td>
+<td align="center">59.57%</td>
+<td align="center">44.8139</td>
+<td align="center">6.7067</td>
+<td align="center">1.9391</td>
 </tr>
 <tr>
-<td>webp</td>
-<td align="right">7.629</td>
-<td align="right">2.124</td>
-<td align="right">0.5293</td>
-<td align="right">81.4525</td>
-<td align="right">4.1099</td>
-<td align="right">1.5775</td>
+<td align="left">kdu</td>
+<td align="center">1.564</td>
+<td align="center">36.06%</td>
+<td align="center">0.9992</td>
+<td align="center">0.9789</td>
+<td align="center">1.9015</td>
 </tr>
 <tr>
-<td>openjpeg</td>
-<td align="right">10.362</td>
-<td align="right">1.564</td>
-<td align="right">0.3606</td>
-<td align="right">4.1349</td>
-<td align="right">2.2590</td>
-<td align="right">1.5771</td>
+<td align="left">webp</td>
+<td align="center">2.124</td>
+<td align="center">52.93%</td>
+<td align="center">81.4525</td>
+<td align="center">4.1099</td>
+<td align="center">1.5775</td>
 </tr>
 <tr>
-<td>mozjpeg</td>
-<td align="right">14.252</td>
-<td align="right">1.137</td>
-<td align="right">0.1205</td>
-<td align="right">14.0222</td>
-<td align="right">0.6776</td>
-<td align="right">1.0000</td>
+<td align="left">openjpeg</td>
+<td align="center">1.564</td>
+<td align="center">36.06%</td>
+<td align="center">4.1349</td>
+<td align="center">2.2590</td>
+<td align="center">1.5771</td>
 </tr>
 <tr>
-<td>bpg</td>
-<td align="right">14.095</td>
-<td align="right">1.150</td>
-<td align="right">0.1303</td>
-<td align="right">21.4230</td>
-<td align="right">5.8602</td>
-<td align="right">0.9682</td>
+<td align="left">Reference (mozjpeg)</td>
+<td align="center">1.137</td>
+<td align="center">12.05%</td>
+<td align="center">14.0222</td>
+<td align="center">0.6776</td>
+<td align="center">1.0000</td>
+</tr>
+<tr>
+<td align="left">bpg</td>
+<td align="center">1.150</td>
+<td align="center">13.03%</td>
+<td align="center">21.4230</td>
+<td align="center">5.8602</td>
+<td align="center">0.9682</td>
 </tr>
 </tbody>
 </table>
 <h3>Lossy compression and speed</h3>
-<p>![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg</p>
+<p>![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg</p>
 <h3>Lossy metrics</h3>
 <p>For each comparison algorithms, we plot the quality in dB in function of the mean bits per pixel on a logarithmic scale. We can then visualize which codec gives the best quality at a given bit per pixel (top left is better).</p>
 <h4>Bits per pixel at equivalent quality according to VMAF</h4>
-<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-PSNR-HVS-M</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-MSSSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-SSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to RGB-SSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 </body>
 </html>

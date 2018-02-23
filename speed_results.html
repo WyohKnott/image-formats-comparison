@@ -5,128 +5,130 @@
 <meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
 <title>Speed results</title>
-</head>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+  extensions: ["MathMenu.js", "MathZoom.js"],
+  TeX: {
+    equationNumbers: {autoNumber: "AMS"}
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script></head>
 <body>
 <h2>Lossless compression ratio and Weissman score:</h2>
 <table>
 <thead>
 <tr>
 <th align="left">codec</th>
-<th align="center">compression ratio</th>
-<th align="center">avg. enc. time</th>
-<th align="center">avg. dec. time</th>
-<th align="center">Reduction gain (from PNG)</th>
+<th align="center">avg. compression ratio</th>
+<th align="center">avg. space saving</th>
+<th align="center">wavg. encode time</th>
+<th align="center">wavg. decode time</th>
 <th align="center">Weissman score</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Daala</td>
-<td align="center">4,249</td>
-<td align="center">0,13</td>
-<td align="center">0,13</td>
-<td align="center">183,62%</td>
-<td align="center">3,10</td>
+<td align="left">daala</td>
+<td align="center">2.798</td>
+<td align="center">64.26%</td>
+<td align="center">1.4952</td>
+<td align="center">1.2960</td>
+<td align="center">3.2145</td>
 </tr>
 <tr>
-<td align="left">AV1 (oct 2016)</td>
-<td align="center">4,436</td>
-<td align="center">1,27</td>
-<td align="center">0,09</td>
-<td align="center">196,13%</td>
-<td align="center">2,20</td>
+<td align="left">vp9</td>
+<td align="center">2.905</td>
+<td align="center">65.58%</td>
+<td align="center">10.6933</td>
+<td align="center">0.9304</td>
+<td align="center">2.6297</td>
 </tr>
 <tr>
-<td align="left">VP9 mt</td>
-<td align="center">4,444</td>
-<td align="center">2,18</td>
-<td align="center">0,08</td>
-<td align="center">196,65%</td>
-<td align="center">2,05</td>
+<td align="left">av1-20160930</td>
+<td align="center">2.912</td>
+<td align="center">65.66%</td>
+<td align="center">31.1063</td>
+<td align="center">1.6304</td>
+<td align="center">2.3640</td>
 </tr>
 <tr>
-<td align="left">VP9</td>
-<td align="center">4,444</td>
-<td align="center">2,54</td>
-<td align="center">0,08</td>
-<td align="center">196,65%</td>
-<td align="center">2,01</td>
+<td align="left">av1-20170809</td>
+<td align="center">3.020</td>
+<td align="center">66.89%</td>
+<td align="center">118.6229</td>
+<td align="center">1.1642</td>
+<td align="center">2.1707</td>
 </tr>
 <tr>
-<td align="left">AV1 (jul 2017) mt</td>
-<td align="center">4,584</td>
-<td align="center">3,98</td>
-<td align="center">0,14</td>
-<td align="center">203,99%</td>
-<td align="center">1,94</td>
+<td align="left">av1-20180222</td>
+<td align="center">2.943</td>
+<td align="center">66.02%</td>
+<td align="center">97.6492</td>
+<td align="center">1.0156</td>
+<td align="center">2.1509</td>
 </tr>
 <tr>
-<td align="left">JPEG 2000</td>
-<td align="center">2,364</td>
-<td align="center">0,08</td>
-<td align="center">0,06</td>
-<td align="center">57,79%</td>
-<td align="center">1,91</td>
+<td align="left">jxr</td>
+<td align="center">1.560</td>
+<td align="center">35.89%</td>
+<td align="center">0.7528</td>
+<td align="center">0.6119</td>
+<td align="center">1.9776</td>
 </tr>
 <tr>
-<td align="left">JPEG XR</td>
-<td align="center">2,330</td>
-<td align="center">0,08</td>
-<td align="center">0,09</td>
-<td align="center">55,50%</td>
-<td align="center">1,90</td>
+<td align="left">flif</td>
+<td align="center">2.473</td>
+<td align="center">59.57%</td>
+<td align="center">44.8139</td>
+<td align="center">6.7067</td>
+<td align="center">1.9391</td>
 </tr>
 <tr>
-<td align="left">AV1 (jul 2017)</td>
-<td align="center">4,565</td>
-<td align="center">9,25</td>
-<td align="center">0,13</td>
-<td align="center">204,73%</td>
-<td align="center">1,77</td>
+<td align="left">kdu</td>
+<td align="center">1.564</td>
+<td align="center">36.06%</td>
+<td align="center">0.9992</td>
+<td align="center">0.9789</td>
+<td align="center">1.9015</td>
 </tr>
 <tr>
-<td align="left">FLIF</td>
-<td align="center">3,782</td>
-<td align="center">4,54</td>
-<td align="center">0,87</td>
-<td align="center">152,44%</td>
-<td align="center">1,59</td>
+<td align="left">webp</td>
+<td align="center">2.124</td>
+<td align="center">52.93%</td>
+<td align="center">81.4525</td>
+<td align="center">4.1099</td>
+<td align="center">1.5775</td>
 </tr>
 <tr>
-<td align="left">WebP</td>
-<td align="center">3,241</td>
-<td align="center">11,83</td>
-<td align="center">0,45</td>
-<td align="center">116,32%</td>
-<td align="center">1,22</td>
+<td align="left">openjpeg</td>
+<td align="center">1.564</td>
+<td align="center">36.06%</td>
+<td align="center">4.1349</td>
+<td align="center">2.2590</td>
+<td align="center">1.5771</td>
 </tr>
 <tr>
-<td align="left">Reference (PNG)</td>
-<td align="center">1,498</td>
-<td align="center">0,20</td>
-<td align="center">0,11</td>
-<td align="center">0,00%</td>
-<td align="center">1,00</td>
+<td align="left">Reference (mozjpeg)</td>
+<td align="center">1.137</td>
+<td align="center">12.05%</td>
+<td align="center">14.0222</td>
+<td align="center">0.6776</td>
+<td align="center">1.0000</td>
 </tr>
 <tr>
-<td align="left">BPG</td>
-<td align="center">1,752</td>
-<td align="center">0,72</td>
-<td align="center">0,68</td>
-<td align="center">16,93%</td>
-<td align="center">0,94</td>
-</tr>
-<tr>
-<td align="left">Mozjpeg</td>
-<td align="center">1,745</td>
-<td align="center">1,54</td>
-<td align="center">0,09</td>
-<td align="center">16,51%</td>
-<td align="center">0,84</td>
+<td align="left">bpg</td>
+<td align="center">1.150</td>
+<td align="center">13.03%</td>
+<td align="center">21.4230</td>
+<td align="center">5.8602</td>
+<td align="center">0.9682</td>
 </tr>
 </tbody>
 </table>
 <h2>Lossy compression and speed</h2>
-<p><img class="graph" alt="Encoding time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20170809,pik).svg"></p>
+<p><img alt="Encoding time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 </body>
 </html>

@@ -4,82 +4,94 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="generator" content="ReText 7.0.0">
 <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
-<title>Evolution of the AV1 codec between October 2016 and July 2017</title>
-</head>
+<title>Evolution of the AV1 codec between October 2016, July 2017 and February 2018</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+  extensions: ["MathMenu.js", "MathZoom.js"],
+  TeX: {
+    equationNumbers: {autoNumber: "AMS"}
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script></head>
 <body>
-<h1>Evolution of the AV1 codec between October 2016 and July 2017</h1>
+<h1>Evolution of the AV1 codec between October 2016, July 2017 and February 2018</h1>
 <h3>Lossless compression ratio and Weissman score:</h3>
 <table>
 <thead>
 <tr>
-<th>format</th>
-<th align="right">avg_bpp</th>
-<th align="right">avg_compression_ratio</th>
-<th align="right">avg_space_saving</th>
-<th align="right">wavg_encode_time</th>
-<th align="right">wavg_decode_time</th>
-<th align="right">weissman_score</th>
+<th align="left">codec</th>
+<th align="center">avg. compression ratio</th>
+<th align="center">avg. space saving</th>
+<th align="center">wavg. encode time</th>
+<th align="center">wavg. decode time</th>
+<th align="center">Weissman score</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>daala</td>
-<td align="right">5.791</td>
-<td align="right">2.798</td>
-<td align="right">0.6426</td>
-<td align="right">1.4952</td>
-<td align="right">1.2960</td>
-<td align="right">3.2145</td>
+<td align="left">daala</td>
+<td align="center">2.798</td>
+<td align="center">64.26%</td>
+<td align="center">1.4952</td>
+<td align="center">1.2960</td>
+<td align="center">3.2145</td>
 </tr>
 <tr>
-<td>av1-20160930</td>
-<td align="right">5.565</td>
-<td align="right">2.912</td>
-<td align="right">0.6566</td>
-<td align="right">31.1063</td>
-<td align="right">1.6304</td>
-<td align="right">2.3640</td>
+<td align="left">av1-20160930</td>
+<td align="center">2.912</td>
+<td align="center">65.66%</td>
+<td align="center">31.1063</td>
+<td align="center">1.6304</td>
+<td align="center">2.3640</td>
 </tr>
 <tr>
-<td>av1-20170809</td>
-<td align="right">5.366</td>
-<td align="right">3.020</td>
-<td align="right">0.6689</td>
-<td align="right">118.6229</td>
-<td align="right">1.1642</td>
-<td align="right">2.1707</td>
+<td align="left">av1-20170809</td>
+<td align="center">3.020</td>
+<td align="center">66.89%</td>
+<td align="center">118.6229</td>
+<td align="center">1.1642</td>
+<td align="center">2.1707</td>
 </tr>
 <tr>
-<td>mozjpeg</td>
-<td align="right">14.252</td>
-<td align="right">1.137</td>
-<td align="right">0.1205</td>
-<td align="right">14.0222</td>
-<td align="right">0.6776</td>
-<td align="right">1.0000</td>
+<td align="left">av1-20180222</td>
+<td align="center">2.943</td>
+<td align="center">66.02%</td>
+<td align="center">97.6492</td>
+<td align="center">1.0156</td>
+<td align="center">2.1509</td>
 </tr>
 <tr>
-<td>bpg</td>
-<td align="right">14.095</td>
-<td align="right">1.150</td>
-<td align="right">0.1303</td>
-<td align="right">21.4230</td>
-<td align="right">5.8602</td>
-<td align="right">0.9682</td>
+<td align="left">Reference (mozjpeg)</td>
+<td align="center">1.137</td>
+<td align="center">12.05%</td>
+<td align="center">14.0222</td>
+<td align="center">0.6776</td>
+<td align="center">1.0000</td>
+</tr>
+<tr>
+<td align="left">bpg</td>
+<td align="center">1.150</td>
+<td align="center">13.03%</td>
+<td align="center">21.4230</td>
+<td align="center">5.8602</td>
+<td align="center">0.9682</td>
 </tr>
 </tbody>
 </table>
 <h3>Encoding times:</h3>
-<p><img class="graph" alt="Encodinq time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Encodinq time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 <h3>Bits per pixel at equivalent quality according to VMAF</h3>
-<p><img class="graph" alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 <h3>Bits per pixel at equivalent quality according to Y-PSNR-HVS-M</h3>
-<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 <h3>Bits per pixel at equivalent quality according to Y-MSSSIM</h3>
-<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 <h3>Bits per pixel at equivalent quality according to Y-SSIM</h3>
-<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 <h3>Bits per pixel at equivalent quality according to RGB-SSIM</h3>
-<p><img class="graph" alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(av1-20160930,av1-20170809).svg"></p>
+<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(av1-20160930,av1-20170809,av1-20180222).svg"></p>
 </body>
 </html>
