@@ -79,8 +79,8 @@ MathJax.Hub.Config({
 <li>
 <p>AV1:</p>
 <ul>
-<li>lossless: <code>aomenc --passes=2 --lossless=1 -o [output] [input(Y4M)]</code></li>
-<li>between q=5 and q=63: <code>aomenc --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]</code></li>
+<li>lossless: <code>aomenc --cpu-used=2 --tile-columns=4 --passes=2 --lossless=1 -o [output] [input(Y4M)]</code></li>
+<li>between q=5 and q=63: <code>aomenc --cpu-used=2 --tile-columns=4 --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]</code></li>
 </ul>
 </li>
 <li>
@@ -125,14 +125,21 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li>
+<p>VP9:</p>
+<ul>
+<li>lossless: <code>aomenc --cpu-used=2 --tile-columns=4 --passes=2 --lossless=1 -o [output] [input(Y4M)]</code></li>
+<li>between q=5 and q=63: <code>aomenc --cpu-used=2 --tile-columns=4 --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]</code></li>
+</ul>
+</li>
+<li>
 <p>WebP:</p>
 <ul>
 <li>lossless: <code>cwebp -mt -z 9 -lossless -o [output] [input(PNG)]</code></li>
-<li>between q=5 and q=95: <code>cwebp -mt -q $q -o [output] [input(PNG)]</code>
-The Python script used to generate the compressed images are available on <a href="https://github.com/WyohKnott/image-comparison-sources">the GIT repository</a>.</li>
+<li>between q=5 and q=95: <code>cwebp -mt -q $q -o [output] [input(PNG)]</code></li>
 </ul>
 </li>
 </ul>
+<p>The Python script used to generate the compressed images are available on <a href="https://github.com/WyohKnott/image-comparison-sources">the GIT repository</a>.</p>
 <h3>Image selection</h3>
 <p>The images which will be displayed on the website are then chosen among all compressed images, using the following criteria:</p>
 <ul>
@@ -166,8 +173,8 @@ The arithmetic mean of encoding and decoding speeds are calculated over the enti
 <h3>Raw data</h3>
 <p>The following archives contain the raw data in csv format for subset1 and subset2:</p>
 <ul>
-<li><a href="http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz">Subset1</a></li>
-<li><a href="http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz">Subset2</a></li>
+<li><a href="http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz">Subset1</a> (updated February 2018)</li>
+<li><a href="http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz">Subset2</a> (outdated)</li>
 </ul>
 <h3>Lossless compression ratio and Weissman score:</h3>
 <table>
@@ -281,18 +288,18 @@ The arithmetic mean of encoding and decoding speeds are calculated over the enti
 </tbody>
 </table>
 <h3>Lossy compression and speed</h3>
-<p>![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg</p>
+<p><img alt="Encoding time in function of bits per pixel" src="http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h3>Lossy metrics</h3>
 <p>For each comparison algorithms, we plot the quality in dB in function of the mean bits per pixel on a logarithmic scale. We can then visualize which codec gives the best quality at a given bit per pixel (top left is better).</p>
 <h4>Bits per pixel at equivalent quality according to VMAF</h4>
-<p><img alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
+<p><img class="graph" alt="Bits per pixel at equivalent quality according to VMAF" src="http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-PSNR-HVS-M</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
+<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-PSNR-HVS-M" src="http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-MSSSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
+<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-MSSSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to Y-SSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
+<p><img class="graph" alt="Bits per pixel at equivalent quality according to Y-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 <h4>Bits per pixel at equivalent quality according to RGB-SSIM</h4>
-<p><img alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
+<p><img class="graph" alt="Bits per pixel at equivalent quality according to RGB-SSIM" src="http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik).svg"></p>
 </body>
 </html>

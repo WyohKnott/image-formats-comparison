@@ -66,8 +66,8 @@ All images are compressed losslessly and over a range of qualities for each code
   
   * AV1:
   
-    - lossless: `aomenc --passes=2 --lossless=1 -o [output] [input(Y4M)]`
-    - between q=5 and q=63: `aomenc --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]`
+    - lossless: `aomenc --cpu-used=2 --tile-columns=4 --passes=2 --lossless=1 -o [output] [input(Y4M)]`
+    - between q=5 and q=63: `aomenc --cpu-used=2 --tile-columns=4 --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]`
   
   * Daala:
   
@@ -98,10 +98,16 @@ All images are compressed losslessly and over a range of qualities for each code
   
     - between q=0.5 and q=3.0: `cpik [input(PNG)] [output] --distance $q`
   
+  * VP9:
+  
+    - lossless: `aomenc --cpu-used=2 --tile-columns=4 --passes=2 --lossless=1 -o [output] [input(Y4M)]`
+    - between q=5 and q=63: `aomenc --cpu-used=2 --tile-columns=4 --passes=2 --end-usage=q --cq-level=$q -o [output] [input(Y4M)]`
+  
   * WebP:
   
     - lossless: `cwebp -mt -z 9 -lossless -o [output] [input(PNG)]`
     - between q=5 and q=95: `cwebp -mt -q $q -o [output] [input(PNG)]`
+
 The Python script used to generate the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
 
 ###Image selection
@@ -114,6 +120,7 @@ The images which will be displayed on the website are then chosen among all comp
   * The filesize for *tiny* quality images is 60% of the *small* filesize.
 
 The Python script used to select the compressed images are available on [the GIT repository](https://github.com/WyohKnott/image-comparison-sources).
+
 
 ###Encoding and decoding speeds:
 
@@ -147,8 +154,8 @@ $$\overline{bpp}_{quality\ q} = \frac{ \sum\limits_{picture=1}^{50} filesize_{qp
 
 The following archives contain the raw data in csv format for subset1 and subset2:
 
-  * [Subset1](http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz)
-  * [Subset2](http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz)
+  * [Subset1](http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz) (updated February 2018)
+  * [Subset2](http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz) (outdated)
 
 ###Lossless compression ratio and Weissman score:
 
@@ -170,7 +177,7 @@ The following archives contain the raw data in csv format for subset1 and subset
 
 ###Lossy compression and speed
 
-![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg
+![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ###Lossy metrics
 
