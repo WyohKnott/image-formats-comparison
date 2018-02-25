@@ -37,10 +37,10 @@ MathJax.Hub.Config({
 <li>Xiph Daala: <code>https://git.xiph.org/?p=daala.git</code>. The version used is built from GIT revision <code>72783687ce4963478b8ab4d97809510f40c7c855</code>.</li>
 <li>Jon Sneyers FLIF: <code>https://github.com/FLIF-hub/FLIF</code>. The version used is built from GIT revision <code>c17459bab5399ed5009c262e9954d474f275db7f</code>.</li>
 <li>Microsoft JxrLib: <code>https://jxrlib.codeplex.com/</code>. The version used is built from GIT revision <code>e922fa50cdf9a58f40cad07553bcaa2883d3c5bf</code>.</li>
-<li>Kakadu JPEG2000: <code>http://kakadusoftware.com/downloads/</code>. The version used is 7.9.</li>
-<li>Mozilla JPEG Encoder: <code>https://github.com/mozilla/mozjpeg</code>. The version used is 3.2.</li>
-<li>Google VP9: <code>https://chromium.googlesource.com/webm/libvpx</code>. The version used is built from GIT revision <code>6c375b9cd0647686ae5cc9bae8e94ec3d7c43e4b</code>.</li>
-<li>Google WebP: <code>https://chromium.googlesource.com/webm/libwebp</code>. The version used is built from GIT revision <code>66ad84f0f9f36d38166a15a981fd7f9a1910a859</code>.</li>
+<li>Kakadu JPEG2000: <code>http://kakadusoftware.com/downloads/</code>. The version used is 7.10.2.</li>
+<li>Mozilla JPEG Encoder: <code>https://github.com/mozilla/mozjpeg</code>. The version used is 3.3.1.</li>
+<li>Google VP9: <code>https://chromium.googlesource.com/webm/libvpx</code>. The version used is 1.7.0.</li>
+<li>Google WebP: <code>https://chromium.googlesource.com/webm/libwebp</code>. The version used is 0.6.1.</li>
 <li>Google Pik: <code>https://github.com/google/pik</code>. The version used is built from GIT revision <code>52f2d45cc8e35e45278da54615bb8b11b5066f16</code>.</li>
 </ul>
 <h3>Metrics</h3>
@@ -186,33 +186,49 @@ The arithmetic mean of encoding and decoding speeds are calculated over the enti
 <td align="left">daala</td>
 <td align="center">2.798</td>
 <td align="center">64.26%</td>
-<td align="center">1.4952</td>
-<td align="center">1.2960</td>
-<td align="center">3.2145</td>
+<td align="center">0.8049</td>
+<td align="center">0.7280</td>
+<td align="center">3.3381</td>
 </tr>
 <tr>
 <td align="left">vp9</td>
 <td align="center">2.905</td>
 <td align="center">65.58%</td>
-<td align="center">10.6933</td>
-<td align="center">0.9304</td>
-<td align="center">2.6297</td>
+<td align="center">3.9375</td>
+<td align="center">0.4193</td>
+<td align="center">2.8011</td>
 </tr>
 <tr>
 <td align="left">av1-20160930</td>
 <td align="center">2.912</td>
 <td align="center">65.66%</td>
-<td align="center">31.1063</td>
-<td align="center">1.6304</td>
-<td align="center">2.3640</td>
+<td align="center">4.7511</td>
+<td align="center">0.4838</td>
+<td align="center">2.7455</td>
 </tr>
 <tr>
 <td align="left">av1-20170809</td>
-<td align="center">3.020</td>
-<td align="center">66.89%</td>
-<td align="center">118.6229</td>
-<td align="center">1.1642</td>
-<td align="center">2.1707</td>
+<td align="center">2.984</td>
+<td align="center">66.49%</td>
+<td align="center">20.4157</td>
+<td align="center">0.6900</td>
+<td align="center">2.4003</td>
+</tr>
+<tr>
+<td align="left">kdu</td>
+<td align="center">1.564</td>
+<td align="center">36.06%</td>
+<td align="center">0.3875</td>
+<td align="center">0.2892</td>
+<td align="center">2.0946</td>
+</tr>
+<tr>
+<td align="left">jxr</td>
+<td align="center">1.560</td>
+<td align="center">35.89%</td>
+<td align="center">0.4058</td>
+<td align="center">0.3628</td>
+<td align="center">2.0730</td>
 </tr>
 <tr>
 <td align="left">av1-20180222</td>
@@ -220,63 +236,47 @@ The arithmetic mean of encoding and decoding speeds are calculated over the enti
 <td align="center">66.02%</td>
 <td align="center">97.6492</td>
 <td align="center">1.0156</td>
-<td align="center">2.1509</td>
-</tr>
-<tr>
-<td align="left">jxr</td>
-<td align="center">1.560</td>
-<td align="center">35.89%</td>
-<td align="center">0.7528</td>
-<td align="center">0.6119</td>
-<td align="center">1.9776</td>
+<td align="center">2.0444</td>
 </tr>
 <tr>
 <td align="left">flif</td>
 <td align="center">2.473</td>
 <td align="center">59.57%</td>
-<td align="center">44.8139</td>
-<td align="center">6.7067</td>
-<td align="center">1.9391</td>
-</tr>
-<tr>
-<td align="left">kdu</td>
-<td align="center">1.564</td>
-<td align="center">36.06%</td>
-<td align="center">0.9992</td>
-<td align="center">0.9789</td>
-<td align="center">1.9015</td>
-</tr>
-<tr>
-<td align="left">webp</td>
-<td align="center">2.124</td>
-<td align="center">52.93%</td>
-<td align="center">81.4525</td>
-<td align="center">4.1099</td>
-<td align="center">1.5775</td>
+<td align="center">22.1088</td>
+<td align="center">4.3042</td>
+<td align="center">1.9732</td>
 </tr>
 <tr>
 <td align="left">openjpeg</td>
 <td align="center">1.564</td>
 <td align="center">36.06%</td>
-<td align="center">4.1349</td>
-<td align="center">2.2590</td>
-<td align="center">1.5771</td>
+<td align="center">2.1181</td>
+<td align="center">1.3794</td>
+<td align="center">1.6300</td>
 </tr>
 <tr>
-<td align="left">Reference (mozjpeg)</td>
-<td align="center">1.137</td>
-<td align="center">12.05%</td>
-<td align="center">14.0222</td>
-<td align="center">0.6776</td>
-<td align="center">1.0000</td>
+<td align="left">webp</td>
+<td align="center">2.124</td>
+<td align="center">52.93%</td>
+<td align="center">37.9675</td>
+<td align="center">2.4799</td>
+<td align="center">1.6079</td>
 </tr>
 <tr>
 <td align="left">bpg</td>
 <td align="center">1.150</td>
 <td align="center">13.03%</td>
-<td align="center">21.4230</td>
-<td align="center">5.8602</td>
-<td align="center">0.9682</td>
+<td align="center">3.7503</td>
+<td align="center">3.5251</td>
+<td align="center">1.1151</td>
+</tr>
+<tr>
+<td align="left">mozjpeg</td>
+<td align="center">1.137</td>
+<td align="center">12.05%</td>
+<td align="center">8.7385</td>
+<td align="center">0.4144</td>
+<td align="center">1.0000</td>
 </tr>
 </tbody>
 </table>

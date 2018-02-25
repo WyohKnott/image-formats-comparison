@@ -23,10 +23,10 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
   * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `72783687ce4963478b8ab4d97809510f40c7c855`.
   * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `c17459bab5399ed5009c262e9954d474f275db7f`.
   * Microsoft JxrLib: `https://jxrlib.codeplex.com/`. The version used is built from GIT revision `e922fa50cdf9a58f40cad07553bcaa2883d3c5bf`.
-  * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.9.
-  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.2.
-  * Google VP9: `https://chromium.googlesource.com/webm/libvpx`. The version used is built from GIT revision `6c375b9cd0647686ae5cc9bae8e94ec3d7c43e4b`.
-  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version used is built from GIT revision `66ad84f0f9f36d38166a15a981fd7f9a1910a859`.
+  * Kakadu JPEG2000: `http://kakadusoftware.com/downloads/`. The version used is 7.10.2.
+  * Mozilla JPEG Encoder: `https://github.com/mozilla/mozjpeg`. The version used is 3.3.1.
+  * Google VP9: `https://chromium.googlesource.com/webm/libvpx`. The version used is 1.7.0.
+  * Google WebP: `https://chromium.googlesource.com/webm/libwebp`. The version used is 0.6.1.
   * Google Pik: `https://github.com/google/pik`. The version used is built from GIT revision `52f2d45cc8e35e45278da54615bb8b11b5066f16`.
 
 ###Metrics
@@ -154,18 +154,18 @@ The following archives contain the raw data in csv format for subset1 and subset
 
 |   codec   |avg. compression ratio|avg. space saving|wavg. encode time|wavg. decode time|Weissman score|
 |:----------|:--------------------:|:---------------:|:---------------:|:---------------:|:------------:|
-|daala               |  2.798|          64.26%|          1.4952|          1.2960|        3.2145|
-|vp9                 |  2.905|          65.58%|         10.6933|          0.9304|        2.6297|
-|av1-20160930        |  2.912|          65.66%|         31.1063|          1.6304|        2.3640|
-|av1-20170809        |  3.020|          66.89%|        118.6229|          1.1642|        2.1707|
-|av1-20180222        |  2.943|          66.02%|         97.6492|          1.0156|        2.1509|
-|jxr                 |  1.560|          35.89%|          0.7528|          0.6119|        1.9776|
-|flif                |  2.473|          59.57%|         44.8139|          6.7067|        1.9391|
-|kdu                 |  1.564|          36.06%|          0.9992|          0.9789|        1.9015|
-|webp                |  2.124|          52.93%|         81.4525|          4.1099|        1.5775|
-|openjpeg            |  1.564|          36.06%|          4.1349|          2.2590|        1.5771|
-|Reference (mozjpeg) |  1.137|          12.05%|         14.0222|          0.6776|        1.0000|
-|bpg                 |  1.150|          13.03%|         21.4230|          5.8602|        0.9682|
+|daala       |                2.798|          64.26%|          0.8049|          0.7280|        3.3381|
+|vp9         |                2.905|          65.58%|          3.9375|          0.4193|        2.8011|
+|av1-20160930|                2.912|          65.66%|          4.7511|          0.4838|        2.7455|
+|av1-20170809|                2.984|          66.49%|         20.4157|          0.6900|        2.4003|
+|kdu         |                1.564|          36.06%|          0.3875|          0.2892|        2.0946|
+|jxr         |                1.560|          35.89%|          0.4058|          0.3628|        2.0730|
+|av1-20180222|                2.943|          66.02%|         97.6492|          1.0156|        2.0444|
+|flif        |                2.473|          59.57%|         22.1088|          4.3042|        1.9732|
+|openjpeg    |                1.564|          36.06%|          2.1181|          1.3794|        1.6300|
+|webp        |                2.124|          52.93%|         37.9675|          2.4799|        1.6079|
+|bpg         |                1.150|          13.03%|          3.7503|          3.5251|        1.1151|
+|mozjpeg     |                1.137|          12.05%|          8.7385|          0.4144|        1.0000|
 
 
 ###Lossy compression and speed
