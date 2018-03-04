@@ -125,7 +125,7 @@ The Python script used to select the compressed images are available on [the GIT
 ###Encoding and decoding speeds:
 
 ####Lossless compression and speed
-For each codec and image, the encoding and decoding speeds for lossless compression are sampled five times using GNU `time`
+For each codec and image, the encoding and decoding speeds for lossless compression are sampled using Python `timeit`.
 The arithmetic mean of encoding and decoding speeds are calculated over the entire image set. We then determine a [Weissman score](https://en.wikipedia.org/wiki/Weissman_score) for each codec using the following formula:
 
 $$W = \alpha {r \over \overline{r}} {\log{\overline{T}} \over \log{T}}$$
@@ -154,8 +154,8 @@ $$\overline{bpp}_{quality\ q} = \frac{ \sum\limits_{picture=1}^{50} filesize_{qp
 
 The following archives contain the raw data in csv format for subset1 and subset2:
 
-  * [Subset1](http://wyohknott.github.io/image-formats-comparison/subset1.tar.gz) (updated February 2018)
-  * [Subset2](http://wyohknott.github.io/image-formats-comparison/subset2.tar.gz) (outdated)
+  * [Subset1](subset1.tar.gz) (updated February 2018)
+  * [Subset2](subset2.tar.gz) (outdated)
 
 ###Lossless compression ratio and Weissman score:
 
@@ -177,7 +177,7 @@ The following archives contain the raw data in csv format for subset1 and subset
 
 ###Lossy compression and speed
 
-![Encoding time in function of bits per pixel](http://wyohknott.github.io/image-formats-comparison/subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Encoding time in function of bits per pixel](subset1.encoding_time.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ###Lossy metrics
 
@@ -185,23 +185,23 @@ For each comparison algorithms, we plot the quality in dB in function of the mea
 
 ####Bits per pixel at equivalent quality according to VMAF
 
-![Bits per pixel at equivalent quality according to VMAF](http://wyohknott.github.io/image-formats-comparison/subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Bits per pixel at equivalent quality according to VMAF](subset1.vmaf.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-PSNR-HVS-M
 
-![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](http://wyohknott.github.io/image-formats-comparison/subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Bits per pixel at equivalent quality according to Y-PSNR-HVS-M](subset1.psnr-hvs-m.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-MSSSIM
 
-![Bits per pixel at equivalent quality according to Y-MSSSIM](http://wyohknott.github.io/image-formats-comparison/subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Bits per pixel at equivalent quality according to Y-MSSSIM](subset1.ms-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to Y-SSIM
 
-![Bits per pixel at equivalent quality according to Y-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Bits per pixel at equivalent quality according to Y-SSIM](subset1.y-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 ####Bits per pixel at equivalent quality according to RGB-SSIM
 
-![Bits per pixel at equivalent quality according to RGB-SSIM](http://wyohknott.github.io/image-formats-comparison/subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
+![Bits per pixel at equivalent quality according to RGB-SSIM](subset1.rgb-ssim.(openjpeg,flif,vp9,daala,jxr,bpg,mozjpeg,webp,kdu,av1-20180222,pik\).svg)
 
 
 
