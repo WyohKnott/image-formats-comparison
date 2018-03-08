@@ -316,7 +316,14 @@
             } else el.style.height = height + "px";
 
             el.style.width = width + "px";
-            el.style.backgroundImage = 'url(\"' + src + '\")';
+            var styleEl = getElId(side + "SideStyle");
+            if (styleEl == null) {
+                styleEl = document.createElement("style");
+                styleEl.id = side + "SideStyle";
+                styleEl.textContent = "#" + el.id + "{}";
+                document.head.appendChild(styleEl);
+            }
+            styleEl.sheet.cssRules[0].style.backgroundImage = 'url(\"' + src + '\")';
             el.style.backgroundColor = "";
             el.style.opacity = 1;
             if (el == view.right) {
