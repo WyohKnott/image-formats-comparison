@@ -19,7 +19,7 @@ The image set is comprised of 50 images from [the subset 1 and subset 2 maintene
 ###Codecs
 
   * Alliance for Open Media AV1: `https://aomedia.googlesource.com/aom/`. The versions used are built from GIT revision `02affd269df5d8abbfc75f5bdad0c080308e0ce1` (october 2016), `ce7272d2d00f224475849c1b1bca0a97b70ea0c4` (july 2017) and `7d3bd8daba6e51566f0458e3f842e246a559ea82` (february 2018).
-  * Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg. The version used is 0.9.7.
+  * Fabrice Bellard BPG: `https://github.com/mirrorer/libbpg`. The version used is 0.9.7.
   * Xiph Daala: `https://git.xiph.org/?p=daala.git`. The version used is built from GIT revision `72783687ce4963478b8ab4d97809510f40c7c855`.
   * Jon Sneyers FLIF: `https://github.com/FLIF-hub/FLIF`. The version used is built from GIT revision `c17459bab5399ed5009c262e9954d474f275db7f`.
   * Microsoft JxrLib: `https://jxrlib.codeplex.com/`. The version used is built from GIT revision `e922fa50cdf9a58f40cad07553bcaa2883d3c5bf`.
